@@ -141,7 +141,7 @@ export function Hero() {
               {COUNTRIES.map((c, i) => (
                 <motion.li
                   key={c.name}
-                  animate={reduce ? undefined : { y: [0, -9, 0] }}
+                  animate={reduce ? {} : { y: [0, -9, 0] }}
                   transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
                   className="glass flex items-center gap-3 rounded-2xl px-4 py-2.5 shadow-soft"
                 >
@@ -160,7 +160,7 @@ export function Hero() {
       <motion.a
         href="#why"
         aria-label="Scroll to why choose SACE"
-        animate={reduce ? undefined : { y: [0, 8, 0] }}
+        animate={reduce ? {} : { y: [0, 8, 0] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-x-0 bottom-6 mx-auto flex w-fit items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/75 transition-colors hover:bg-white/10 hover:text-white"
       >
