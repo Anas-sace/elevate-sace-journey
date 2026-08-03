@@ -7,7 +7,7 @@ import { Reveal, SectionHead } from "./ui";
 const STORIES = [
   {
     name: "Aiko Tanaka",
-    country: "🇯🇵 Japan",
+    country: "Japan",
     now: "Master of Marketing, University of Adelaide",
     quote:
       "I arrived too shy to order coffee. Eleven months later I presented my research in English to eighty people.",
@@ -15,7 +15,7 @@ const STORIES = [
   },
   {
     name: "Julián Restrepo",
-    country: "🇨🇴 Colombia",
+    country: "Colombia",
     now: "Bachelor of Engineering, UniSA",
     quote:
       "The teachers pushed me exactly as hard as I needed. My pathway offer arrived before I even finished the course.",
@@ -23,7 +23,7 @@ const STORIES = [
   },
   {
     name: "Linh Nguyen",
-    country: "🇻🇳 Vietnam",
+    country: "Vietnam",
     now: "Registered Nurse, Adelaide",
     quote:
       "SACE helped me with IELTS, my visa and my first job interview. It felt like having family here.",

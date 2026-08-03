@@ -11,9 +11,9 @@ const STATS = [
 ];
 
 const COUNTRIES = [
-  { flag: "🇯🇵", name: "Japan", city: "Tokyo" },
-  { flag: "🇨🇴", name: "Colombia", city: "Bogotá" },
-  { flag: "🇻🇳", name: "Vietnam", city: "Hanoi" },
+  { flag: "JP", name: "Japan", city: "Tokyo" },
+  { flag: "CO", name: "Colombia", city: "Bogotá" },
+  { flag: "VN", name: "Vietnam", city: "Hanoi" },
 ];
 
 export function Hero() {
@@ -145,7 +145,7 @@ export function Hero() {
                   transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
                   className="glass flex items-center gap-3 rounded-2xl px-4 py-2.5 shadow-soft"
                 >
-                  <span aria-hidden className="text-xl">{c.flag}</span>
+                  <span aria-hidden className="inline-flex size-8 items-center justify-center rounded-lg bg-primary-soft font-display text-[11px] font-extrabold text-primary">{c.flag}</span>
                   <span>
                     <span className="block text-xs font-semibold text-foreground">{c.name}</span>
                     <span className="block text-[11px] text-muted-foreground">{c.city}</span>
