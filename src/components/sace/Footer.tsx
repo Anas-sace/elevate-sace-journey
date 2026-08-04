@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, AlertCircle } from "lucide-react";
 import logo from "@/assets/sace-logo.svg";
+import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 
 const QUICK = [
   { label: "Our college", href: "#why" },
@@ -37,7 +38,9 @@ export function Footer() {
       <div className="shell py-18 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
-            <img src={logo} alt="South Australian College of English" width={200} height={46} className="ink-invert h-9 w-auto" />
+            <SecretAdminTrigger>
+              <img src={logo} alt="South Australian College of English" width={200} height={46} className="ink-invert h-9 w-auto" />
+            </SecretAdminTrigger>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
               Teaching English in the heart of Adelaide since 1987. NEAS accredited, CRICOS
               registered, student-obsessed.
