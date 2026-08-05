@@ -1,19 +1,20 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { normalizeContent, THEME_TOKENS, type CmsContent } from "@/lib/cms";
-import { Image as ImageIcon, LayoutTemplate, LogOut, Palette, Search, Type } from "lucide-react";
+import { normalizeContent, SECTION_IDS, THEME_TOKENS, type CmsContent } from "@/lib/cms";
+import { Image as ImageIcon, Layers, LayoutTemplate, LogOut, Palette, Search, Type } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({ meta: [{ title: "Superadmin · SACE" }, { name: "robots", content: "noindex" }] }),
   component: AdminDashboard,
 });
 
-type Tab = "editor" | "content" | "theme" | "media" | "seo";
+type Tab = "editor" | "content" | "sections" | "theme" | "media" | "seo";
 
 const TABS: { id: Tab; label: string; Icon: typeof Palette }[] = [
   { id: "editor", label: "Visual editor", Icon: LayoutTemplate },
   { id: "content", label: "Content", Icon: Type },
+  { id: "sections", label: "Sections", Icon: Layers },
   { id: "theme", label: "Theme", Icon: Palette },
   { id: "media", label: "Media", Icon: ImageIcon },
   { id: "seo", label: "SEO", Icon: Search },
@@ -153,6 +154,7 @@ function AdminDashboard() {
           </section>
         )}
 
+        {tab === "sections" && <SectionsPanel content={content} reload={load} flash={flash} />}
         {tab === "theme" && <ThemePanel content={content} reload={load} flash={flash} />}
         {tab === "media" && <MediaPanel />}
         {tab === "seo" && <SeoPanel content={content} reload={load} flash={flash} />}
