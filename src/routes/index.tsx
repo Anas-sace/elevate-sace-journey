@@ -29,9 +29,8 @@ const DESCRIPTION =
   "South Australian College of English: General English, IELTS and university pathway courses in the heart of Adelaide. NEAS accredited since 1987. Apply in 10 minutes.";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    cms: search["cms"] === "edit" ? ("edit" as const) : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { cms?: "edit" } =>
+    search["cms"] === "edit" ? { cms: "edit" } : {},
   loader: () => getSiteContent(),
   head: ({ loaderData }) => {
     const seo = normalizeContent(loaderData as Record<string, unknown> | undefined).seo;
