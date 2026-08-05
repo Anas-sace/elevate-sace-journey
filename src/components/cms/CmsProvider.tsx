@@ -118,6 +118,13 @@ export function CmsProvider({
   }, [content.theme]);
 
   useEffect(() => {
+    for (const [id, visible] of Object.entries(content.sections)) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = visible === false ? "none" : "";
+    }
+  }, [content.sections]);
+
+  useEffect(() => {
     let frame = 0;
     const run = () => {
       cancelAnimationFrame(frame);
