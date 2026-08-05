@@ -235,18 +235,27 @@ function ThemePanel({
 }
 
 function MediaPanel() {
-  const [files, setFiles] = useState<{ name: string; url: string }[]>([]);
-  const [busy, setBusy] = useState(false);
+  const [files, setFiles] = useState<{ name: string; url: string; size: number }[]>([]);
+  const [busy, setBusy] = useState("");
+  const [query, setQuery] = useState("");
+
+  const signed = async (name: string) => {
+    const { data } = await supabase.storage.from("site-media").createSignedUrl(name, 60 * 60 * 24 * 365 * 10);
+    return data?.signedUrl ?? "";
+  };
 
   const list = async () => {
-    const { data } = await supabase.storage.from("site-media").list("", { limit: 100, sortBy: { column: "created_at", order: "desc" } });
+    const { data } = await supabase.storage
+      .from("site-media")
+      .list("", { limit: 200, sortBy: { column: "created_at", order: "desc" } });
     const rows = await Promise.all(
-      (data ?? []).map(async (f) => {
-        const { data: signed } = await supabase.storage
-          .from("site-media")
-          .createSignedUrl(f.name, 60 * 60 * 24 * 365 * 10);
-        return { name: f.name, url: signed?.signedUrl ?? "" };
-      }),
+      (data ?? [])
+        .filter((f) => f.name !== ".emptyFolderPlaceholder")
+        .map(async (f) => ({
+          name: f.name,
+          url: await signed(f.name),
+          size: Number((f.metadata as { size?: number } | null)?.size ?? 0),
+        })),
     );
     setFiles(rows);
   };
@@ -255,42 +264,164 @@ function MediaPanel() {
     void list();
   }, []);
 
+  const safe = (n: string) => n.replace(/[^a-zA-Z0-9.\-_]/g, "_");
+
+  const uploadFiles = async (fileList: FileList) => {
+    setBusy("Uploading…");
+    for (const file of Array.from(fileList)) {
+      await supabase.storage.from("site-media").upload(`${Date.now()}-${safe(file.name)}`, file, { upsert: true });
+    }
+    await list();
+    setBusy("");
+  };
+
+  const replaceFile = async (name: string, file: File) => {
+    setBusy("Replacing…");
+    await supabase.storage.from("site-media").update(name, file, { upsert: true });
+    await list();
+    setBusy("");
+  };
+
+  const rename = async (name: string) => {
+    const next = window.prompt("New file name", name);
+    if (!next || next === name) return;
+    setBusy("Renaming…");
+    await supabase.storage.from("site-media").move(name, safe(next));
+    await list();
+    setBusy("");
+  };
+
+  const remove = async (name: string) => {
+    if (!window.confirm(`Delete ${name}? This cannot be undone.`)) return;
+    setBusy("Deleting…");
+    await supabase.storage.from("site-media").remove([name]);
+    await list();
+    setBusy("");
+  };
+
+  const shown = files.filter((f) => f.name.toLowerCase().includes(query.toLowerCase()));
+
   return (
     <section className="rounded-2xl border border-border bg-card p-5">
-      <h2 className="font-display text-lg font-bold">Media library</h2>
-      <input
-        type="file"
-        accept="image/*,video/*"
-        disabled={busy}
-        onChange={async (e) => {
-          const file = e.target.files?.[0];
-          if (!file) return;
-          setBusy(true);
-          await supabase.storage
-            .from("site-media")
-            .upload(`${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_")}`, file);
-          await list();
-          setBusy(false);
-        }}
-        className="mt-4 text-sm"
-      />
+      <div className="flex flex-wrap items-center gap-3">
+        <h2 className="font-display text-lg font-bold">Media library</h2>
+        <span className="text-xs text-accent-foreground">{busy}</span>
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search media…"
+          className="ml-auto w-48 rounded-lg border border-input bg-background p-2 text-xs"
+        />
+        <label className="cursor-pointer rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground">
+          Upload images / videos
+          <input
+            type="file"
+            accept="image/*,video/*"
+            multiple
+            className="hidden"
+            onChange={(e) => e.target.files?.length && uploadFiles(e.target.files)}
+          />
+        </label>
+      </div>
+      <p className="mt-2 text-xs text-muted-foreground">
+        Upload, rename, replace or delete any image or video. Copy a URL and paste it into the
+        visual editor to swap any picture on the site.
+      </p>
+
       <ul className="mt-5 grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {files.map((f) => (
+        {shown.map((f) => (
           <li key={f.name} className="overflow-hidden rounded-xl border border-border">
             {/\.(mp4|webm|mov)$/i.test(f.name) ? (
-              <video src={f.url} className="h-28 w-full object-cover" muted />
+              <video src={f.url} className="h-32 w-full object-cover" muted controls />
             ) : (
-              <img src={f.url} alt={f.name} className="h-28 w-full object-cover" />
+              <img src={f.url} alt={f.name} className="h-32 w-full object-cover" />
             )}
-            <button
-              onClick={() => navigator.clipboard.writeText(f.url)}
-              className="w-full truncate px-2 py-2 text-left text-[11px] text-muted-foreground hover:text-foreground"
-            >
-              Copy URL · {f.name}
-            </button>
+            <div className="space-y-1 p-2">
+              <p className="truncate text-[11px] font-semibold" title={f.name}>{f.name}</p>
+              <p className="text-[10px] text-muted-foreground">{Math.round(f.size / 1024)} KB</p>
+              <div className="flex flex-wrap gap-1 pt-1">
+                <button
+                  onClick={() => navigator.clipboard.writeText(f.url)}
+                  className="rounded-full border border-border px-2 py-1 text-[10px] font-semibold"
+                >
+                  Copy URL
+                </button>
+                <label className="cursor-pointer rounded-full border border-border px-2 py-1 text-[10px] font-semibold">
+                  Replace
+                  <input
+                    type="file"
+                    accept="image/*,video/*"
+                    className="hidden"
+                    onChange={(e) => e.target.files?.[0] && replaceFile(f.name, e.target.files[0])}
+                  />
+                </label>
+                <button
+                  onClick={() => rename(f.name)}
+                  className="rounded-full border border-border px-2 py-1 text-[10px] font-semibold"
+                >
+                  Rename
+                </button>
+                <button
+                  onClick={() => remove(f.name)}
+                  className="rounded-full border border-destructive px-2 py-1 text-[10px] font-semibold text-destructive"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </li>
         ))}
+        {shown.length === 0 && <li className="py-6 text-sm text-muted-foreground">No media yet.</li>}
       </ul>
+    </section>
+  );
+}
+
+function SectionsPanel({
+  content,
+  reload,
+  flash,
+}: {
+  content: CmsContent;
+  reload: () => Promise<void>;
+  flash: (m: string) => void;
+}) {
+  const [sections, setSections] = useState<Record<string, boolean>>(content.sections ?? {});
+
+  return (
+    <section className="rounded-2xl border border-border bg-card p-5">
+      <h2 className="font-display text-lg font-bold">Sections</h2>
+      <p className="mt-1 text-xs text-muted-foreground">Show or hide whole sections of the site.</p>
+      <ul className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {SECTION_IDS.map((id) => {
+          const hidden = sections[id] === false;
+          return (
+            <li key={id}>
+              <button
+                onClick={() => setSections((s) => ({ ...s, [id]: hidden }))}
+                className={`flex w-full items-center justify-between rounded-xl border border-border px-4 py-3 text-xs font-semibold ${
+                  hidden ? "text-muted-foreground" : ""
+                }`}
+              >
+                <span className="capitalize">{id}</span>
+                <span className={hidden ? "text-muted-foreground" : "text-accent-foreground"}>
+                  {hidden ? "Hidden" : "Visible"}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+      <button
+        onClick={async () => {
+          await saveKey("sections", sections);
+          await reload();
+          flash("Sections saved");
+        }}
+        className="mt-5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
+      >
+        Save sections
+      </button>
     </section>
   );
 }
