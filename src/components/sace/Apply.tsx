@@ -1,19 +1,13 @@
 import { useState, type FormEvent } from "react";
-import { CheckCircle2, Send } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Globe } from "lucide-react";
 import graduation from "@/assets/life-graduation.jpg";
+import logo from "@/assets/sace-logo.svg";
+import { COURSE_OPTIONS, NATIONALITIES } from "@/lib/courses";
 import { Reveal } from "./ui";
 
-const COURSES = [
-  "General English",
-  "IELTS Preparation",
-  "English for Tertiary Studies",
-  "High School Programme",
-  "Cambridge CELTA",
-  "Not sure yet",
-];
-
+const label = "mb-2 block text-sm font-semibold text-foreground";
 const field =
-  "min-h-13 w-full rounded-2xl border border-input bg-card px-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none";
+  "min-h-12 w-full rounded-xl border border-input bg-card px-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25 focus:outline-none";
 
 export function Apply() {
   const [sent, setSent] = useState(false);
@@ -34,106 +28,116 @@ export function Apply() {
         loading="lazy"
         className="absolute inset-0 -z-20 size-full object-cover opacity-25"
       />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,var(--primary-deep)_10%,color-mix(in_oklab,var(--primary)_75%,transparent)_100%)]" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(120deg,var(--primary-deep)_10%,color-mix(in_oklab,var(--primary)_75%,transparent)_100%)]"
+      />
 
-      <div className="shell grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-        <Reveal className="text-primary-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em]">
-            <span aria-hidden className="size-1.5 rounded-full bg-accent" />
-            Apply in 10 minutes
-          </span>
-          <h2 className="display-2 mt-5">Your Australian chapter starts with one form.</h2>
-          <p className="mt-5 text-lg leading-relaxed text-primary-foreground/80">
-            No application fee. No agent required. A real person from our admissions team will reply
-            to you personally — usually the same day.
-          </p>
-          <ul className="mt-8 space-y-3 text-sm text-primary-foreground/85">
-            {["Free placement assessment", "Offer letter within 2 business days", "Visa and accommodation guidance included"].map(
-              (b) => (
-                <li key={b} className="flex items-center gap-3">
-                  <CheckCircle2 aria-hidden className="size-5 shrink-0 text-accent" />
-                  {b}
-                </li>
-              ),
-            )}
-          </ul>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <div className="rounded-4xl bg-card p-7 shadow-lift md:p-9">
+      <div className="shell flex justify-center">
+        <Reveal className="w-full max-w-3xl">
+          <div className="rounded-4xl bg-card p-6 shadow-lift sm:p-10">
             {sent ? (
-              <div role="status" className="py-12 text-center">
+              <div role="status" className="py-16 text-center">
                 <CheckCircle2 aria-hidden className="mx-auto size-12 text-primary" />
-                <h3 className="display-3 mt-5 text-foreground">Thank you — we have your enquiry.</h3>
+                <h2 className="display-3 mt-5 text-foreground">Account created — welcome to SACE.</h2>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Our admissions team will be in touch within one business day.
+                  An 8-digit login code is on its way to your email. Our admissions team will be in
+                  touch within one business day.
                 </p>
               </div>
             ) : (
-              <form onSubmit={onSubmit} noValidate={false}>
-                <h3 className="display-3 text-foreground">Start your application</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Fields marked with an asterisk are required.
+              <form onSubmit={onSubmit}>
+                <div className="flex items-center justify-between gap-4">
+                  <a
+                    href="#top"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <ArrowLeft aria-hidden className="size-4" />
+                    Back to website
+                  </a>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-input px-3.5 py-2 text-sm font-medium text-foreground">
+                    <Globe aria-hidden className="size-4" />
+                    <span className="text-xs uppercase text-muted-foreground">AU</span> English
+                  </span>
+                </div>
+
+                <img src={logo} alt="SACE — South Australian College of English" className="mx-auto mt-8 h-12 w-auto" />
+
+                <h2 className="display-3 mt-6 text-center text-primary">Create your account</h2>
+                <p className="mt-2 text-center text-sm text-muted-foreground">
+                  Start your SACE journey — takes 60 seconds
                 </p>
 
-                <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                <div className="mt-8 grid gap-x-5 gap-y-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="first" className="mb-2 block text-sm font-medium text-foreground">
-                      First name *
-                    </label>
-                    <input id="first" name="first" required autoComplete="given-name" className={field} />
+                    <label htmlFor="first" className={label}>First name *</label>
+                    <input id="first" name="first" required autoComplete="given-name" placeholder="Maria" className={field} />
                   </div>
                   <div>
-                    <label htmlFor="last" className="mb-2 block text-sm font-medium text-foreground">
-                      Last name *
-                    </label>
-                    <input id="last" name="last" required autoComplete="family-name" className={field} />
+                    <label htmlFor="last" className={label}>Last name *</label>
+                    <input id="last" name="last" required autoComplete="family-name" placeholder="Santos" className={field} />
                   </div>
-                  <div className="sm:col-span-2">
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
-                      Email *
-                    </label>
-                    <input id="email" name="email" type="email" required autoComplete="email" className={field} />
+
+                  <div>
+                    <label htmlFor="dob" className={label}>Date of birth *</label>
+                    <input id="dob" name="dob" type="date" required className={field} />
                   </div>
                   <div>
-                    <label htmlFor="nationality" className="mb-2 block text-sm font-medium text-foreground">
-                      Nationality
-                    </label>
-                    <input id="nationality" name="nationality" autoComplete="country-name" className={field} />
-                  </div>
-                  <div>
-                    <label htmlFor="course" className="mb-2 block text-sm font-medium text-foreground">
-                      Course of interest *
-                    </label>
-                    <select id="course" name="course" required defaultValue="" className={field}>
-                      <option value="" disabled>
-                        Choose a course
-                      </option>
-                      {COURSES.map((c) => (
-                        <option key={c} value={c}>
-                          {c}
-                        </option>
+                    <label htmlFor="nationality" className={label}>Nationality *</label>
+                    <select id="nationality" name="nationality" required defaultValue="" className={field}>
+                      <option value="" disabled>Select...</option>
+                      {NATIONALITIES.map((n) => (
+                        <option key={n} value={n}>{n}</option>
                       ))}
                     </select>
                   </div>
+
                   <div className="sm:col-span-2">
-                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
-                      Anything you would like us to know?
-                    </label>
-                    <textarea id="message" name="message" rows={3} className={`${field} py-3.5`} />
+                    <label htmlFor="start" className={label}>Preferred start date</label>
+                    <input id="start" name="start" type="date" aria-describedby="start-help" className={field} />
+                    <p id="start-help" className="mt-2 text-xs text-muted-foreground">
+                      We&apos;ll show you upcoming courses starting on or after this date.
+                    </p>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label htmlFor="course" className={label}>Select course *</label>
+                    <select id="course" name="course" required defaultValue="" className={field}>
+                      <option value="" disabled>Select course</option>
+                      {COURSE_OPTIONS.map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className={label}>Email *</label>
+                    <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={field} />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className={label}>Phone *</label>
+                    <input id="phone" name="phone" type="tel" required autoComplete="tel" placeholder="+61 4XX XXX XXX" className={field} />
                   </div>
                 </div>
 
+                <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+                  By registering you agree to our{" "}
+                  <a href="#faq" className="font-semibold text-primary underline-offset-2 hover:underline">Terms of Service</a>{" "}
+                  and{" "}
+                  <a href="#faq" className="font-semibold text-primary underline-offset-2 hover:underline">Privacy Policy</a>.
+                  After registering, an 8-digit login code will be sent to your email.
+                </p>
+
                 <button
                   type="submit"
-                  className="mt-7 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-deep hover:-translate-y-0.5 active:scale-[0.99]"
+                  className="mt-6 inline-flex min-h-14 w-full items-center justify-center rounded-xl bg-primary px-6 text-base font-bold text-primary-foreground transition-all duration-300 hover:bg-primary-deep hover:-translate-y-0.5 active:scale-[0.99]"
                 >
-                  <Send aria-hidden className="size-4" />
-                  Submit application
+                  Create Account
                 </button>
-                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                  By submitting you agree to our privacy policy. We never share your details with
-                  third parties.
+
+                <p className="mt-5 text-center text-sm text-muted-foreground">
+                  Already have an account?{" "}
+                  <a href="#apply" className="font-semibold text-primary underline-offset-2 hover:underline">Sign in</a>
                 </p>
               </form>
             )}
