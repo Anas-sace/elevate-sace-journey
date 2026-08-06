@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, Clock } from "lucide-react";
 import { PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Eyebrow, Reveal } from "@/components/sace/ui";
-import { COURSES, getCourse } from "@/data/courses";
+import { COURSES, getCourse, type CourseDetail } from "@/data/courses";
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
@@ -50,7 +50,7 @@ function CourseNotFound() {
 }
 
 function CoursePage() {
-  const { course } = Route.useLoaderData();
+  const { course } = Route.useLoaderData() as { course: CourseDetail };
   const others = COURSES.filter((c) => c.slug !== course.slug).slice(0, 3);
 
   return (

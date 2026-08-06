@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as ApiPublicSeedSuperadminRouteImport } from './routes/api/public/seed-superadmin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -34,6 +35,11 @@ const CoursesIndexRoute = CoursesIndexRouteImport.update({
   path: '/courses/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesSlugRoute = CoursesSlugRouteImport.update({
+  id: '/courses/$slug',
+  path: '/courses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
   id: '/api/public/seed-superadmin',
   path: '/api/public/seed-superadmin',
@@ -43,12 +49,14 @@ const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/courses/$slug': typeof CoursesSlugRoute
   '/courses': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
@@ -57,19 +65,31 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/courses/' | '/api/public/seed-superadmin'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/courses/$slug'
+    | '/courses/'
+    | '/api/public/seed-superadmin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/courses' | '/api/public/seed-superadmin'
+  to:
+    | '/'
+    | '/admin'
+    | '/courses/$slug'
+    | '/courses'
+    | '/api/public/seed-superadmin'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/_authenticated/admin'
+    | '/courses/$slug'
     | '/courses/'
     | '/api/public/seed-superadmin'
   fileRoutesById: FileRoutesById
@@ -77,6 +97,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  CoursesSlugRoute: typeof CoursesSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
 }
@@ -111,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/$slug': {
+      id: '/courses/$slug'
+      path: '/courses/$slug'
+      fullPath: '/courses/$slug'
+      preLoaderRoute: typeof CoursesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/seed-superadmin': {
       id: '/api/public/seed-superadmin'
       path: '/api/public/seed-superadmin'
@@ -135,6 +163,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  CoursesSlugRoute: CoursesSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
 }
