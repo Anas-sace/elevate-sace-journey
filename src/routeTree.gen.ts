@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as PathwaysRouteImport } from './routes/pathways'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
@@ -29,6 +30,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PathwaysRoute = PathwaysRouteImport.update({
+  id: '/pathways',
+  path: '/pathways',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
@@ -55,6 +61,7 @@ const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/pathways': typeof PathwaysRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -63,6 +70,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/pathways': typeof PathwaysRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses': typeof CoursesIndexRoute
@@ -73,6 +81,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/pathways': typeof PathwaysRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -83,6 +92,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/pathways'
     | '/admin'
     | '/courses/$slug'
     | '/courses/'
@@ -91,6 +101,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/pathways'
     | '/admin'
     | '/courses/$slug'
     | '/courses'
@@ -100,6 +111,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
+    | '/pathways'
     | '/_authenticated/admin'
     | '/courses/$slug'
     | '/courses/'
@@ -110,6 +122,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  PathwaysRoute: typeof PathwaysRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
@@ -136,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pathways': {
+      id: '/pathways'
+      path: '/pathways'
+      fullPath: '/pathways'
+      preLoaderRoute: typeof PathwaysRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin': {
@@ -184,6 +204,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  PathwaysRoute: PathwaysRoute,
   CoursesSlugRoute: CoursesSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
