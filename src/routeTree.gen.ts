@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PathwaysRouteImport } from './routes/pathways'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StudyToursRouteImport } from './routes/study-tours'
@@ -32,6 +33,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PathwaysRoute = PathwaysRouteImport.update({
@@ -73,6 +79,7 @@ const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
@@ -84,6 +91,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
+    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
@@ -146,6 +158,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  InsightsRoute: typeof InsightsRoute
   PathwaysRoute: typeof PathwaysRoute
   ServicesRoute: typeof ServicesRoute
   StudyToursRoute: typeof StudyToursRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pathways': {
@@ -244,6 +264,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  InsightsRoute: InsightsRoute,
   PathwaysRoute: PathwaysRoute,
   ServicesRoute: ServicesRoute,
   StudyToursRoute: StudyToursRoute,
