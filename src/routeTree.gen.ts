@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as ApiPublicSeedSuperadminRouteImport } from './routes/api/public/seed-superadmin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -28,6 +29,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
   id: '/api/public/seed-superadmin',
   path: '/api/public/seed-superadmin',
@@ -37,11 +43,13 @@ const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/courses/': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/courses': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRoutesById {
@@ -49,24 +57,27 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/courses/': typeof CoursesIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/api/public/seed-superadmin'
+  fullPaths: '/' | '/admin' | '/courses/' | '/api/public/seed-superadmin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/api/public/seed-superadmin'
+  to: '/' | '/admin' | '/courses' | '/api/public/seed-superadmin'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/_authenticated/admin'
+    | '/courses/'
     | '/api/public/seed-superadmin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  CoursesIndexRoute: typeof CoursesIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
 }
 
@@ -93,6 +104,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/seed-superadmin': {
       id: '/api/public/seed-superadmin'
       path: '/api/public/seed-superadmin'
@@ -117,18 +135,9 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  CoursesIndexRoute: CoursesIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
