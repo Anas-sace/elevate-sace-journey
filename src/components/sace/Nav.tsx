@@ -109,7 +109,7 @@ export function Nav() {
               >
                 <Link
                   to={group.to}
-                  hash={group.hash}
+                  {...(group.hash ? { hash: group.hash } : {})}
                   aria-expanded={group.items ? openGroup === group.label : undefined}
                   onFocus={() => setOpenGroup(group.items ? group.label : null)}
                   className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2.5 text-sm font-medium transition-colors ${
@@ -135,7 +135,7 @@ export function Nav() {
                           <li key={item.label}>
                             <Link
                               to={item.to}
-                              hash={item.hash}
+                              {...(item.hash ? { hash: item.hash } : {})}
                               onClick={() => setOpenGroup(null)}
                               className="block rounded-2xl px-4 py-3 transition-colors hover:bg-secondary"
                             >
@@ -193,7 +193,7 @@ export function Nav() {
                 <li key={group.label}>
                   <Link
                     to={group.to}
-                    hash={group.hash}
+                    {...(group.hash ? { hash: group.hash } : {})}
                     onClick={() => setOpen(false)}
                     className="flex min-h-12 items-center rounded-2xl px-3 text-base font-semibold text-foreground transition-colors hover:bg-secondary"
                   >
@@ -205,7 +205,7 @@ export function Nav() {
                         <li key={item.label}>
                           <Link
                             to={item.to}
-                            hash={item.hash}
+                            {...(item.hash ? { hash: item.hash } : {})}
                             onClick={() => setOpen(false)}
                             className="flex min-h-11 items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                           >
