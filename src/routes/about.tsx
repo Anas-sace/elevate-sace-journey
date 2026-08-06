@@ -64,10 +64,6 @@ const PILLARS = [
   },
 ];
 
-export default function _unused() {
-  return null;
-}
-
 function AboutPage() {
   return (
     <PageShell>
