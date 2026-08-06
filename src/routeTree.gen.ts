@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as PathwaysRouteImport } from './routes/pathways'
+import { Route as StudyToursRouteImport } from './routes/study-tours'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
@@ -35,6 +36,11 @@ const AboutRoute = AboutRouteImport.update({
 const PathwaysRoute = PathwaysRouteImport.update({
   id: '/pathways',
   path: '/pathways',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyToursRoute = StudyToursRouteImport.update({
+  id: '/study-tours',
+  path: '/study-tours',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
@@ -62,6 +68,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pathways': typeof PathwaysRoute
+  '/study-tours': typeof StudyToursRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/pathways': typeof PathwaysRoute
+  '/study-tours': typeof StudyToursRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses': typeof CoursesIndexRoute
@@ -82,6 +90,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/pathways': typeof PathwaysRoute
+  '/study-tours': typeof StudyToursRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/': typeof CoursesIndexRoute
@@ -93,6 +102,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/pathways'
+    | '/study-tours'
     | '/admin'
     | '/courses/$slug'
     | '/courses/'
@@ -102,6 +112,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/pathways'
+    | '/study-tours'
     | '/admin'
     | '/courses/$slug'
     | '/courses'
@@ -112,6 +123,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/about'
     | '/pathways'
+    | '/study-tours'
     | '/_authenticated/admin'
     | '/courses/$slug'
     | '/courses/'
@@ -123,6 +135,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   PathwaysRoute: typeof PathwaysRoute
+  StudyToursRoute: typeof StudyToursRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
@@ -156,6 +169,13 @@ declare module '@tanstack/react-router' {
       path: '/pathways'
       fullPath: '/pathways'
       preLoaderRoute: typeof PathwaysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-tours': {
+      id: '/study-tours'
+      path: '/study-tours'
+      fullPath: '/study-tours'
+      preLoaderRoute: typeof StudyToursRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin': {
@@ -205,6 +225,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   PathwaysRoute: PathwaysRoute,
+  StudyToursRoute: StudyToursRoute,
   CoursesSlugRoute: CoursesSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
