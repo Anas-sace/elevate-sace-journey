@@ -1,44 +1,48 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import logo from "@/assets/sace-logo.svg";
 import { ButtonLink } from "./ui";
+import { COURSES } from "@/data/courses";
 
-type MenuItem = { label: string; href: string; blurb: string };
-type NavGroup = { label: string; href: string; items?: MenuItem[] };
+type MenuItem = { label: string; to: string; hash?: string; blurb: string };
+type NavGroup = { label: string; to: string; hash?: string; items?: MenuItem[] };
 
 const NAV: NavGroup[] = [
   {
+    label: "About",
+    to: "/about",
+    items: [
+      { label: "Our College", to: "/about", blurb: "Nearly 40 years of English teaching." },
+      { label: "Our Accreditation", to: "/about", hash: "accreditation", blurb: "NEAS accredited, Cambridge approved." },
+      { label: "Our Campus", to: "/about", hash: "campus", blurb: "A heritage building in the city centre." },
+      { label: "Life at SACE Adelaide", to: "/", hash: "life", blurb: "Trips, clubs, friends and festivals." },
+      { label: "FAQ", to: "/", hash: "faq", blurb: "Answers to the questions we hear most." },
+    ],
+  },
+  {
     label: "Courses",
-    href: "#courses",
-    items: [
-      { label: "General English", href: "#courses", blurb: "Speak with confidence, every day." },
-      { label: "IELTS Preparation", href: "#courses", blurb: "Target the band score you need." },
-      { label: "English for Tertiary Studies", href: "#courses", blurb: "Academic English for university." },
-      { label: "High School Programme", href: "#courses", blurb: "Bridge into an Australian school." },
-      { label: "Cambridge CELTA", href: "#courses", blurb: "Qualify to teach English worldwide." },
-    ],
+    to: "/courses",
+    items: COURSES.map((c) => ({
+      label: c.shortName,
+      to: `/courses/${c.slug}`,
+      blurb: c.tagline,
+    })),
   },
+  { label: "Pathways", to: "/pathways" },
+  { label: "Study Tours", to: "/study-tours" },
   {
-    label: "Students",
-    href: "#journey",
+    label: "Services",
+    to: "/services",
     items: [
-      { label: "Your journey", href: "#journey", blurb: "From first enquiry to graduation." },
-      { label: "Campus experience", href: "#campus", blurb: "Where you'll learn every day." },
-      { label: "Student life", href: "#life", blurb: "Trips, clubs, friends and festivals." },
-      { label: "Support & counselling", href: "#why", blurb: "Someone beside you the whole way." },
+      { label: "TOEIC", to: "/services", hash: "toeic", blurb: "An accredited TOEIC public test centre." },
+      { label: "Student Counselling", to: "/services", hash: "counselling", blurb: "Advice for study, work and life." },
+      { label: "Accommodation", to: "/services", hash: "accommodation", blurb: "Homestay, hostel or share house." },
+      { label: "Club SACE", to: "/services", hash: "club-sace", blurb: "Weekly afternoon activities." },
     ],
   },
-  { label: "Accommodation", href: "#accommodation" },
-  {
-    label: "Pathways",
-    href: "#pathways",
-    items: [
-      { label: "University pathways", href: "#pathways", blurb: "Direct entry partnerships." },
-      { label: "Success stories", href: "#stories", blurb: "Where our graduates are now." },
-    ],
-  },
-  { label: "About", href: "#australia" },
-  { label: "Contact", href: "#footer" },
+  { label: "Insights", to: "/insights" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export function Nav() {
@@ -80,7 +84,11 @@ export function Nav() {
       </a>
 
       <div className="shell flex h-18 items-center justify-between gap-4 py-3.5">
-        <a href="#main" className="flex shrink-0 items-center" aria-label="SACE — South Australian College of English, home">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center"
+          aria-label="SACE — South Australian College of English, home"
+        >
           <img
             src={logo}
             alt="South Australian College of English"
@@ -88,10 +96,10 @@ export function Nav() {
             height={39}
             className={`h-8 w-auto transition-all duration-500 md:h-9 ${solid ? "" : "ink-invert"}`}
           />
-        </a>
+        </Link>
 
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label="Primary" className="hidden xl:block">
+          <ul className="flex items-center gap-0.5">
             {NAV.map((group) => (
               <li
                 key={group.label}
@@ -99,11 +107,12 @@ export function Nav() {
                 onMouseEnter={() => setOpenGroup(group.items ? group.label : null)}
                 onMouseLeave={() => setOpenGroup(null)}
               >
-                <a
-                  href={group.href}
+                <Link
+                  to={group.to}
+                  hash={group.hash}
                   aria-expanded={group.items ? openGroup === group.label : undefined}
                   onFocus={() => setOpenGroup(group.items ? group.label : null)}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2.5 text-sm font-medium transition-colors ${
                     solid
                       ? "text-foreground/80 hover:bg-secondary hover:text-primary"
                       : "text-white/85 hover:bg-white/12 hover:text-white"
@@ -111,24 +120,28 @@ export function Nav() {
                 >
                   {group.label}
                   {group.items ? (
-                    <ChevronDown aria-hidden className={`size-3.5 transition-transform ${openGroup === group.label ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      aria-hidden
+                      className={`size-3.5 transition-transform ${openGroup === group.label ? "rotate-180" : ""}`}
+                    />
                   ) : null}
-                </a>
+                </Link>
 
                 {group.items && openGroup === group.label ? (
                   <div className="absolute left-1/2 top-full w-[26rem] -translate-x-1/2 pt-3">
-                    <div className="card-premium overflow-hidden p-2 shadow-lift">
+                    <div className="card-premium max-h-[70vh] overflow-auto p-2 shadow-lift">
                       <ul>
                         {group.items.map((item) => (
                           <li key={item.label}>
-                            <a
-                              href={item.href}
+                            <Link
+                              to={item.to}
+                              hash={item.hash}
                               onClick={() => setOpenGroup(null)}
                               className="block rounded-2xl px-4 py-3 transition-colors hover:bg-secondary"
                             >
                               <span className="block text-sm font-semibold text-foreground">{item.label}</span>
                               <span className="mt-0.5 block text-xs text-muted-foreground">{item.blurb}</span>
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -140,18 +153,18 @@ export function Nav() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <a
             href="tel:+61884105222"
             className={`inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors ${
-              solid ? "text-muted-foreground hover:text-primary" : "text-white/80 hover:text-white"
+              solid ? "text-muted-foreground hover:text-primary" : "text-white/85 hover:text-white"
             }`}
           >
             <Phone aria-hidden className="size-4" />
             +61 8 8410 5222
           </a>
-          <ButtonLink href="#apply" variant={solid ? "primary" : "accent"} className="px-5 py-3">
-            Apply now
+          <ButtonLink href="/#apply" variant={solid ? "primary" : "accent"} className="px-5 py-3">
+            Enrol now
           </ButtonLink>
         </div>
 
@@ -161,7 +174,7 @@ export function Nav() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className={`inline-flex size-11 items-center justify-center rounded-full border transition-colors lg:hidden ${
+          className={`inline-flex size-11 items-center justify-center rounded-full border transition-colors xl:hidden ${
             solid ? "border-border text-foreground" : "border-white/30 text-white"
           }`}
         >
@@ -170,29 +183,34 @@ export function Nav() {
       </div>
 
       {open ? (
-        <div id="mobile-nav" className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background lg:hidden">
+        <div
+          id="mobile-nav"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background xl:hidden"
+        >
           <nav aria-label="Mobile" className="shell py-6">
             <ul className="space-y-1">
               {NAV.map((group) => (
                 <li key={group.label}>
-                  <a
-                    href={group.href}
+                  <Link
+                    to={group.to}
+                    hash={group.hash}
                     onClick={() => setOpen(false)}
                     className="flex min-h-12 items-center rounded-2xl px-3 text-base font-semibold text-foreground transition-colors hover:bg-secondary"
                   >
                     {group.label}
-                  </a>
+                  </Link>
                   {group.items ? (
                     <ul className="mb-2 ml-3 border-l border-border pl-4">
                       {group.items.map((item) => (
                         <li key={item.label}>
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.to}
+                            hash={item.hash}
                             onClick={() => setOpen(false)}
                             className="flex min-h-11 items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -201,7 +219,7 @@ export function Nav() {
               ))}
             </ul>
             <div className="mt-6 flex flex-col gap-3">
-              <ButtonLink href="#apply">Apply now</ButtonLink>
+              <ButtonLink href="/#apply">Enrol now</ButtonLink>
               <ButtonLink href="tel:+61884105222" variant="outline">
                 Call +61 8 8410 5222
               </ButtonLink>
