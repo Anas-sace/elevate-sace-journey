@@ -1,5 +1,7 @@
 /** Shared CMS types + helpers used by both the public site and the dashboard. */
 
+import { normalizeReviews, DEFAULT_REVIEWS, type Review } from "./reviews";
+
 export type ElementOverride = {
   text?: string;
   src?: string;
@@ -27,6 +29,7 @@ export type CmsContent = {
   theme: ThemeSettings;
   seo: SeoSettings;
   sections: Record<string, boolean>;
+  reviews: Review[];
 };
 
 export const THEME_TOKENS = [
@@ -61,7 +64,7 @@ export const SECTION_IDS = [
 ] as const;
 
 export function emptyContent(): CmsContent {
-  return { overrides: {}, theme: {}, seo: {}, sections: {} };
+  return { overrides: {}, theme: {}, seo: {}, sections: {}, reviews: DEFAULT_REVIEWS };
 }
 
 export function normalizeContent(raw: Record<string, unknown> | null | undefined): CmsContent {
@@ -76,6 +79,7 @@ export function normalizeContent(raw: Record<string, unknown> | null | undefined
     theme: (theme && typeof theme === "object" ? theme : {}) as ThemeSettings,
     seo: (seo && typeof seo === "object" ? seo : {}) as SeoSettings,
     sections: (sections && typeof sections === "object" ? sections : {}) as Record<string, boolean>,
+    reviews: normalizeReviews(raw["reviews"]),
   };
 }
 
