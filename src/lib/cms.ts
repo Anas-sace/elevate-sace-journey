@@ -27,6 +27,7 @@ export type CmsContent = {
   theme: ThemeSettings;
   seo: SeoSettings;
   sections: Record<string, boolean>;
+  reviews: Review[];
 };
 
 export const THEME_TOKENS = [
