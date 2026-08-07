@@ -121,21 +121,24 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
         if (missing.length) {
           setBusy(true);
-          for (let i = 0; i < missing.length; i += 60) {
-            const chunk = missing.slice(i, i + 60);
-            try {
-              const res = await translateBatch({
-                data: { texts: chunk, languageName: language?.name ?? code },
-              });
-              chunk.forEach((src, idx) => {
-                const value = res.texts[idx];
-                if (value) dict.current[src] = value;
-              });
-            } catch {
-              break;
-            }
-            if (langRef.current !== code) return;
-          }
+          const chunks: string[][] = [];
+          for (let i = 0; i < missing.length; i += 30) chunks.push(missing.slice(i, i + 30));
+          await Promise.all(
+            chunks.map(async (chunk) => {
+              try {
+                const res = await translateBatch({
+                  data: { texts: chunk, languageName: language?.name ?? code },
+                });
+                chunk.forEach((src, idx) => {
+                  const value = res.texts[idx];
+                  if (value) dict.current[src] = value;
+                });
+              } catch {
+                /* keep the English source for this chunk */
+              }
+            }),
+          );
+          if (langRef.current !== code) return;
           saveDict(code);
           setBusy(false);
         }
