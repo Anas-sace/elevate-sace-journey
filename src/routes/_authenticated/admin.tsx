@@ -487,3 +487,180 @@ function SeoPanel({
     </section>
   );
 }
+
+function ReviewsPanel({
+  content,
+  reload,
+  flash,
+}: {
+  content: CmsContent;
+  reload: () => Promise<void>;
+  flash: (m: string) => void;
+}) {
+  const [rows, setRows] = useState<Review[]>(content.reviews);
+  const [busy, setBusy] = useState("");
+
+  const update = (id: string, patch: Partial<Review>) =>
+    setRows((list) => list.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+
+  const upload = async (id: string, file: File, field: "avatar" | "video" | "poster") => {
+    setBusy("Uploading…");
+    const name = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_")}`;
+    const { error } = await supabase.storage.from("site-media").upload(name, file, { upsert: true });
+    if (!error) {
+      const { data } = await supabase.storage
+        .from("site-media")
+        .createSignedUrl(name, 60 * 60 * 24 * 365 * 10);
+      if (data?.signedUrl) update(id, { [field]: data.signedUrl } as Partial<Review>);
+    }
+    setBusy("");
+  };
+
+  const save = async (next: Review[]) => {
+    await saveKey("reviews", next);
+    await reload();
+    flash("Reviews saved");
+  };
+
+  const field = "mt-1 w-full rounded-lg border border-input bg-background p-2 text-sm font-normal";
+
+  return (
+    <section className="rounded-2xl border border-border bg-card p-5">
+      <div className="flex flex-wrap items-center gap-3">
+        <h2 className="font-display text-lg font-bold">Student reviews</h2>
+        <span className="text-xs text-accent-foreground">{busy}</span>
+        <button
+          onClick={() =>
+            setRows((list) => [
+              {
+                id: `review-${Date.now()}`,
+                name: "New student",
+                country: "",
+                now: "",
+                quote: "",
+                rating: 5,
+                avatar: "",
+              },
+              ...list,
+            ])
+          }
+          className="ml-auto inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground"
+        >
+          <Plus className="size-3.5" /> Add review
+        </button>
+        <button
+          onClick={() => setRows(DEFAULT_REVIEWS)}
+          className="rounded-full border border-border px-4 py-2 text-xs font-semibold"
+        >
+          Restore samples
+        </button>
+      </div>
+      <p className="mt-2 text-xs text-muted-foreground">
+        Add written reviews, or attach a video file to turn a card into a video testimonial.
+      </p>
+
+      <ul className="mt-5 grid gap-4 lg:grid-cols-2">
+        {rows.map((r) => (
+          <li key={r.id} className="rounded-xl border border-border p-4">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <label className="block text-xs font-semibold">
+                Name
+                <input value={r.name} onChange={(e) => update(r.id, { name: e.target.value })} className={field} />
+              </label>
+              <label className="block text-xs font-semibold">
+                Country
+                <input
+                  value={r.country}
+                  onChange={(e) => update(r.id, { country: e.target.value })}
+                  className={field}
+                />
+              </label>
+            </div>
+            <label className="mt-3 block text-xs font-semibold">
+              Now studying / working
+              <input value={r.now} onChange={(e) => update(r.id, { now: e.target.value })} className={field} />
+            </label>
+            <label className="mt-3 block text-xs font-semibold">
+              Review
+              <textarea
+                rows={3}
+                value={r.quote}
+                onChange={(e) => update(r.id, { quote: e.target.value })}
+                className={field}
+              />
+            </label>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <label className="block text-xs font-semibold">
+                Rating (1–5)
+                <input
+                  type="number"
+                  min={1}
+                  max={5}
+                  value={r.rating}
+                  onChange={(e) => update(r.id, { rating: Number(e.target.value) })}
+                  className={field}
+                />
+              </label>
+              <label className="block text-xs font-semibold">
+                Photo URL
+                <input
+                  value={r.avatar}
+                  onChange={(e) => update(r.id, { avatar: e.target.value })}
+                  className={field}
+                />
+              </label>
+            </div>
+            <label className="mt-3 block text-xs font-semibold">
+              Video URL (leave blank for a text review)
+              <input
+                value={r.video ?? ""}
+                onChange={(e) => update(r.id, { video: e.target.value })}
+                className={field}
+              />
+            </label>
+
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <label className="cursor-pointer rounded-full border border-border px-3 py-1.5 text-[11px] font-semibold">
+                Upload photo
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => e.target.files?.[0] && upload(r.id, e.target.files[0], "avatar")}
+                />
+              </label>
+              <label className="cursor-pointer rounded-full border border-border px-3 py-1.5 text-[11px] font-semibold">
+                Upload video
+                <input
+                  type="file"
+                  accept="video/*"
+                  className="hidden"
+                  onChange={(e) => e.target.files?.[0] && upload(r.id, e.target.files[0], "video")}
+                />
+              </label>
+              <button
+                onClick={() => {
+                  const next = rows.filter((x) => x.id !== r.id);
+                  setRows(next);
+                  void save(next);
+                }}
+                className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-destructive px-3 py-1.5 text-[11px] font-semibold text-destructive"
+              >
+                <Trash2 className="size-3.5" /> Delete
+              </button>
+            </div>
+
+            {r.video ? <video src={r.video} controls className="mt-3 aspect-video w-full rounded-lg bg-black" /> : null}
+          </li>
+        ))}
+      </ul>
+
+      <button
+        onClick={() => save(rows)}
+        className="mt-5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
+      >
+        Save reviews
+      </button>
+    </section>
+  );
+}
