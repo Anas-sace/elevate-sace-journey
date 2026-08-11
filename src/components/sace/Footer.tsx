@@ -42,6 +42,7 @@ export function Footer() {
             <SecretAdminTrigger>
               <img src={logo} alt="South Australian College of English" width={200} height={46} className="ink-invert h-9 w-auto" />
             </SecretAdminTrigger>
+            <p className="mt-4 font-display text-base font-semibold text-primary-foreground">CRICOS: 00094M</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
               Teaching English in the heart of Adelaide since 1987. NEAS accredited, CRICOS
               registered, student-obsessed.
