@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Nav } from "@/components/sace/Nav";
 import { Hero } from "@/components/sace/Hero";
+import { Accreditations } from "@/components/sace/Accreditations";
 import { WhyChoose } from "@/components/sace/WhyChoose";
 import { StudyAustralia } from "@/components/sace/StudyAustralia";
 import { Courses } from "@/components/sace/Courses";
