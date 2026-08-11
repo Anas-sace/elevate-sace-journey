@@ -157,10 +157,12 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/15 pt-8 text-xs text-primary-foreground/60 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} South Australian College of English. All rights reserved.</p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            <li>NEAS Quality Assured</li>
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li className="flex items-center gap-2 rounded-lg bg-white px-2.5 py-1.5">
+              <img src={neas} alt="NEAS Quality Endorsed Centre" width={96} height={29} className="h-6 w-auto" />
+            </li>
             <li>English Australia member</li>
-            <li>CRICOS Provider 00075B</li>
+            <li>CRICOS: 00094M</li>
           </ul>
         </div>
       </div>
