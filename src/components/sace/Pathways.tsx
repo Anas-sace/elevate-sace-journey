@@ -16,12 +16,12 @@ const STAGES = [
 ];
 
 const PARTNERS = [
-  "University of Adelaide",
-  "University of South Australia",
-  "Flinders University",
-  "TAFE SA",
-  "Torrens University",
-  "Le Cordon Bleu",
+  { name: "Flinders University", logo: flinders },
+  { name: "CQUniversity Australia", logo: cqu },
+  { name: "TAFE SA", logo: tafesa },
+  { name: "Deakin College", logo: deakin },
+  { name: "EQUALS International", logo: equals },
+  { name: "Quality Training & Hospitality College", logo: qthc },
 ];
 
 export function Pathways() {
