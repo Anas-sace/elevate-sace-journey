@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-students.jpg";
 import { ButtonLink, Counter } from "./ui";
 
 const STATS = [
-  { value: 39, suffix: "+", label: "Years in Adelaide" },
+  { value: 40, suffix: "+", label: "Years in Adelaide" },
   { value: 60, suffix: "+", label: "Nationalities" },
   { value: 40000, suffix: "+", label: "Students taught" },
   { value: 24, suffix: "/7", label: "Student support" },

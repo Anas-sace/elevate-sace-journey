@@ -25,7 +25,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const STATS = [
-  { value: 38, suffix: "+", label: "Years" },
+  { value: 40, suffix: "+", label: "Years" },
   { value: 10, suffix: "+", label: "Courses" },
   { value: 25000, suffix: "+", label: "Students certified" },
   { value: 30, suffix: "", label: "Countries represented" },

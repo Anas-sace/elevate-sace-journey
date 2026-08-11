@@ -3,7 +3,7 @@ import { Counter, Reveal } from "./ui";
 const STATS = [
   { to: 40000, suffix: "+", label: "Students taught since 1987" },
   { to: 60, suffix: "+", label: "Nationalities on campus" },
-  { to: 39, suffix: "", label: "Years of accreditation" },
+  { to: 40, suffix: "+", label: "Years of accreditation" },
   { to: 96, suffix: "%", label: "Would recommend SACE" },
   { to: 18, suffix: "", label: "Pathway partnerships" },
 ];

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, AlertCircle } from "lucide-react";
 import logo from "@/assets/sace-logo.svg";
+import neas from "@/assets/partners/neas.png";
 import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 
 const QUICK = [
@@ -41,6 +42,7 @@ export function Footer() {
             <SecretAdminTrigger>
               <img src={logo} alt="South Australian College of English" width={200} height={46} className="ink-invert h-9 w-auto" />
             </SecretAdminTrigger>
+            <p className="mt-4 font-display text-base font-semibold text-primary-foreground">CRICOS: 00094M</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
               Teaching English in the heart of Adelaide since 1987. NEAS accredited, CRICOS
               registered, student-obsessed.
@@ -157,10 +159,12 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/15 pt-8 text-xs text-primary-foreground/60 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} South Australian College of English. All rights reserved.</p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            <li>NEAS Quality Assured</li>
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li className="flex items-center gap-2 rounded-lg bg-white px-2.5 py-1.5">
+              <img src={neas} alt="NEAS Quality Endorsed Centre" width={96} height={29} className="h-6 w-auto" />
+            </li>
             <li>English Australia member</li>
-            <li>CRICOS Provider 00075B</li>
+            <li>CRICOS: 00094M</li>
           </ul>
         </div>
       </div>

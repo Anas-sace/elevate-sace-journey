@@ -1,5 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import { Reveal, SectionHead } from "./ui";
+import { Reveal } from "./ui";
+import flinders from "@/assets/partners/partner-1.png";
+import cqu from "@/assets/partners/partner-2.png";
+import tafesa from "@/assets/partners/partner-3.png";
+import deakin from "@/assets/partners/partner-4.png";
+import equals from "@/assets/partners/partner-5.png";
+import qthc from "@/assets/partners/partner-6.png";
 
 const STAGES = [
   { label: "English", detail: "General or Tertiary English at SACE" },
@@ -10,12 +16,12 @@ const STAGES = [
 ];
 
 const PARTNERS = [
-  "University of Adelaide",
-  "University of South Australia",
-  "Flinders University",
-  "TAFE SA",
-  "Torrens University",
-  "Le Cordon Bleu",
+  { name: "Flinders University", logo: flinders },
+  { name: "CQUniversity Australia", logo: cqu },
+  { name: "TAFE SA", logo: tafesa },
+  { name: "Deakin College", logo: deakin },
+  { name: "EQUALS International", logo: equals },
+  { name: "Quality Training & Hospitality College", logo: qthc },
 ];
 
 export function Pathways() {
@@ -62,10 +68,15 @@ export function Pathways() {
             <ul className="marquee-track flex w-max items-center gap-4">
               {[...PARTNERS, ...PARTNERS].map((p, i) => (
                 <li
-                  key={`${p}-${i}`}
-                  className="whitespace-nowrap rounded-2xl border border-white/18 px-6 py-4 font-display text-sm font-semibold text-primary-foreground/90"
+                  key={`${p.name}-${i}`}
+                  className="flex h-24 w-56 shrink-0 items-center justify-center rounded-2xl border border-white/18 bg-white p-5"
                 >
-                  {p}
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    loading="lazy"
+                    className="max-h-14 w-auto object-contain"
+                  />
                 </li>
               ))}
             </ul>
