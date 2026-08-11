@@ -1,5 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import { Reveal, SectionHead } from "./ui";
+import { Reveal } from "./ui";
+import flinders from "@/assets/partners/partner-1.png";
+import cqu from "@/assets/partners/partner-2.png";
+import tafesa from "@/assets/partners/partner-3.png";
+import deakin from "@/assets/partners/partner-4.png";
+import equals from "@/assets/partners/partner-5.png";
+import qthc from "@/assets/partners/partner-6.png";
 
 const STAGES = [
   { label: "English", detail: "General or Tertiary English at SACE" },
