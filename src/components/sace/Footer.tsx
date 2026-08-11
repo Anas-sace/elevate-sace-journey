@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, AlertCircle } from "lucide-react";
-import logo from "@/assets/sace-logo.svg";
+import crest from "@/assets/sace-crest.png";
 import neas from "@/assets/partners/neas.png";
 import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 
