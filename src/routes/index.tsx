@@ -84,6 +84,7 @@ function Index() {
       <Nav />
       <main>
         <Hero />
+        <Accreditations />
         <WhyChoose />
         <StudyAustralia />
         <Courses />
