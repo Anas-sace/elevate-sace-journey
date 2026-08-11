@@ -68,10 +68,15 @@ export function Pathways() {
             <ul className="marquee-track flex w-max items-center gap-4">
               {[...PARTNERS, ...PARTNERS].map((p, i) => (
                 <li
-                  key={`${p}-${i}`}
-                  className="whitespace-nowrap rounded-2xl border border-white/18 px-6 py-4 font-display text-sm font-semibold text-primary-foreground/90"
+                  key={`${p.name}-${i}`}
+                  className="flex h-24 w-56 shrink-0 items-center justify-center rounded-2xl border border-white/18 bg-white p-5"
                 >
-                  {p}
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    loading="lazy"
+                    className="max-h-14 w-auto object-contain"
+                  />
                 </li>
               ))}
             </ul>
