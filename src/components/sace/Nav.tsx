@@ -13,7 +13,7 @@ const NAV: NavGroup[] = [
     label: "About",
     to: "/about",
     items: [
-      { label: "Our College", to: "/about", blurb: "Nearly 40 years of English teaching." },
+      { label: "Our College", to: "/about", blurb: "40+ years of English teaching in Adelaide." },
       { label: "Our Accreditation", to: "/about", hash: "accreditation", blurb: "NEAS accredited, Cambridge approved." },
       { label: "Our Campus", to: "/about", hash: "campus", blurb: "A heritage building in the city centre." },
       { label: "Life at SACE Adelaide", to: "/", hash: "life", blurb: "Trips, clubs, friends and festivals." },
