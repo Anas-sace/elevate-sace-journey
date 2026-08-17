@@ -7,6 +7,7 @@ import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 const QUICK = [
   { label: "Our college", href: "#why" },
   { label: "Our campus", href: "#campus" },
+  { label: "Access Brochure", href: "/SACE-Brochure.pdf" },
   { label: "Accreditation", href: "#footer" },
   { label: "Privacy policy", href: "#footer" },
   { label: "Terms of use", href: "#footer" },
