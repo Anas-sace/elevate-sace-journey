@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, PlayCircle, MouseIcon } from "lucide-react";
+import { ArrowRight, PlayCircle, MouseIcon, Download } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
+import buildingImg from "@/assets/hero-building.jpg";
 import { ButtonLink, Counter } from "./ui";
 
 const STATS = [
