@@ -7,6 +7,7 @@ import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 const QUICK = [
   { label: "Our college", href: "#why" },
   { label: "Our campus", href: "#campus" },
+  { label: "Access Brochure", href: "/SACE-Brochure.pdf" },
   { label: "Accreditation", href: "#footer" },
   { label: "Privacy policy", href: "#footer" },
   { label: "Terms of use", href: "#footer" },
@@ -44,8 +45,8 @@ export function Footer() {
                 <img
                   src={footerLogo}
                   alt="South Australian College of English"
-                  width={800}
-                  height={203}
+                  width={2076}
+                  height={528}
                   className="h-12 w-auto"
                 />
               </span>

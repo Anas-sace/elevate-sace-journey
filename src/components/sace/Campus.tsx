@@ -2,14 +2,14 @@ import { Play } from "lucide-react";
 import classroom from "@/assets/campus-classroom.jpg";
 import foyer from "@/assets/campus-lounge.jpg";
 import adelaide from "@/assets/adelaide.jpg";
-import building from "@/assets/campus-building.jpg";
+import building from "@/assets/hero-building.jpg";
 import excursion from "@/assets/life-excursion.jpg";
 import { Reveal, SectionHead } from "./ui";
 
 const TILES = [
-  { src: classroom, alt: "Small group class with a teacher in a bright SACE classroom", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 1600, h: 1200, video: true },
-  { src: foyer, alt: "The Woodards House foyer and entry to the SACE campus", label: "Reception & foyer", meta: "Level 1, Woodards House", span: "", w: 580, h: 870 },
-  { src: building, alt: "Woodards House, the heritage building housing SACE on Waymouth Street", label: "Our building", meta: "47 Waymouth Street", span: "", w: 565, h: 767 },
+  { src: classroom, alt: "SACE students in class celebrating their course certificates with their teacher", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 2000, h: 1500, video: true },
+  { src: foyer, alt: "The Woodards House foyer and reception at the SACE campus", label: "Reception & foyer", meta: "Level 1, Woodards House", span: "", w: 1160, h: 1740 },
+  { src: building, alt: "Woodards House, the heritage building housing SACE on Waymouth Street", label: "Our building", meta: "47 Waymouth Street", span: "", w: 2400, h: 1600 },
   { src: adelaide, alt: "Adelaide city skyline and the River Torrens parklands", label: "The city", meta: "5 min walk", span: "", w: 451, h: 652 },
   { src: excursion, alt: "SACE students on an excursion at the University of Adelaide lawns", label: "Beyond campus", meta: "Weekly trips", span: "", w: 1600, h: 1200 },
 ];

@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, PlayCircle, MouseIcon } from "lucide-react";
+import { ArrowRight, PlayCircle, MouseIcon, Download } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
+import buildingImg from "@/assets/hero-building.jpg";
 import { ButtonLink, Counter } from "./ui";
 
 const STATS = [
@@ -24,9 +25,9 @@ export function Hero() {
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
-          alt="International students walking together outside the SACE campus in Adelaide"
-          width={1920}
-          height={1280}
+          alt="SACE students and teachers celebrating together in the Adelaide campus common room"
+          width={2560}
+          height={1093}
           fetchPriority="high"
           className="ken-burns size-full object-cover"
         />
@@ -82,6 +83,9 @@ export function Hero() {
               <ButtonLink href="#courses" variant="ghostLight">
                 Explore courses
               </ButtonLink>
+              <ButtonLink href="/SACE-Brochure.pdf" variant="ghostLight">
+                <Download aria-hidden className="size-4" /> Access Brochure
+              </ButtonLink>
             </motion.div>
 
             <motion.dl
@@ -115,12 +119,12 @@ export function Hero() {
             <div className="glass-dark overflow-hidden rounded-4xl p-2 shadow-lift">
               <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
                 <img
-                  src={heroImg}
-                  alt="A SACE teacher working one-to-one with a student in class"
-                  width={1920}
-                  height={1280}
-                  loading="lazy"
-                  className="size-full scale-125 object-cover"
+                  src={buildingImg}
+                  alt="SACE students outside Woodards House, the college building on Waymouth Street, Adelaide"
+                  width={2400}
+                  height={1600}
+                  fetchPriority="high"
+                  className="size-full object-cover"
                 />
                 <div aria-hidden className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
                 <button
