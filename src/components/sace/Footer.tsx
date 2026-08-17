@@ -41,17 +41,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <SecretAdminTrigger>
-              <span className="inline-flex rounded-2xl bg-white px-5 py-4">
+              <span className="inline-flex">
                 <img
-                  src={footerLogo}
-                  alt="South Australian College of English"
-                  width={2076}
-                  height={528}
-                  className="h-12 w-auto"
+                  src={crestLogo.url}
+                  alt="South Australian College of English — Est. 1987, CRICOS 00094M"
+                  className="h-28 w-auto"
                 />
               </span>
             </SecretAdminTrigger>
-            <p className="mt-4 font-display text-base font-semibold text-primary-foreground">CRICOS: 00094M</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
               Teaching English in the heart of Adelaide since 1987. NEAS accredited, CRICOS
               registered, student-obsessed.
