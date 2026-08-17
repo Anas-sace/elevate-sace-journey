@@ -2,6 +2,17 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, Clock } from "lucide-react";
 import { PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Eyebrow, Reveal } from "@/components/sace/ui";
+import {
+  CourseBenefits,
+  CourseFaqs,
+  CourseFocus,
+  CourseHeroExtras,
+  CourseLevels,
+  CourseOptions,
+  CourseOverviewPanel,
+  CourseWeek,
+} from "@/components/sace/CourseRich";
+import { getCourseRich } from "@/data/course-seo";
 import { COURSES, getCourse, type CourseDetail } from "@/data/courses";
 
 export const Route = createFileRoute("/courses/$slug")({
@@ -16,22 +27,57 @@ export const Route = createFileRoute("/courses/$slug")({
         meta: [{ title: "Course not found — SACE Adelaide" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.course.name} — SACE Adelaide`;
-    const description = loaderData.course.intro;
+    const rich = getCourseRich(loaderData.course.slug);
+    const title = rich?.metaTitle ?? `${loaderData.course.name} — SACE Adelaide`;
+    const description = rich?.metaDescription ?? loaderData.course.intro;
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        ...(rich ? [{ name: "keywords", content: rich.keywords.join(", ") }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      ...(rich
+        ? {
+            scripts: [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@graph": [
+                    {
+                      "@type": "Course",
+                      name: rich.heroTitle,
+                      description: rich.metaDescription,
+                      provider: {
+                        "@type": "EducationalOrganization",
+                        name: "South Australian College of English (SACE)",
+                        url: "https://sace.edu.au/",
+                      },
+                    },
+                    {
+                      "@type": "FAQPage",
+                      mainEntity: rich.faqs.map((f) => ({
+                        "@type": "Question",
+                        name: f.q,
+                        acceptedAnswer: { "@type": "Answer", text: f.a },
+                      })),
+                    },
+                  ],
+                }),
+              },
+            ],
+          }
+        : {}),
     };
   },
   notFoundComponent: CourseNotFound,
   component: CoursePage,
 });
+
 
 function CourseNotFound() {
   return (
