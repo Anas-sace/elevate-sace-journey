@@ -25,9 +25,9 @@ export function Hero() {
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
-          alt="International students walking together outside the SACE campus in Adelaide"
-          width={1920}
-          height={1280}
+          alt="SACE students and teachers celebrating together in the Adelaide campus common room"
+          width={2560}
+          height={1093}
           fetchPriority="high"
           className="ken-burns size-full object-cover"
         />
