@@ -59,9 +59,9 @@ export const COURSE_SEO: Record<string, CourseRich> = {
     heroTitle: "General English Course in Adelaide, Australia",
     heroTagline: "Speak with Confidence. Connect with the World.",
     ctas: [
-      { label: "Download Fees Structure (2026)", href: "/contact", variant: "accent" },
+      { label: "Access Brochure (2026)", href: "/SACE-Brochure.pdf", variant: "accent" },
       { label: "Enrol Now", href: "/#apply", variant: "primary" },
-      { label: "Test Your English Level", href: "/contact", variant: "outline" },
+      { label: "Test Your English Level", href: "/test-your-english", variant: "outline" },
     ],
     overviewHeading: "Overview",
     overview: [
