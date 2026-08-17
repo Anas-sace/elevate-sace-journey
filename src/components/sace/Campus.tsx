@@ -2,7 +2,7 @@ import { Play } from "lucide-react";
 import classroom from "@/assets/campus-classroom.jpg";
 import foyer from "@/assets/campus-lounge.jpg";
 import adelaide from "@/assets/adelaide.jpg";
-import building from "@/assets/campus-building.jpg";
+import building from "@/assets/hero-building.jpg";
 import excursion from "@/assets/life-excursion.jpg";
 import { Reveal, SectionHead } from "./ui";
 
