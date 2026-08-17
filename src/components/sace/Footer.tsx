@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, AlertCircle } from "lucide-react";
-import crest from "@/assets/sace-crest.png";
+import footerLogo from "@/assets/sace-footer-logo.png";
 import neas from "@/assets/partners/neas.png";
 import { SecretAdminTrigger } from "@/components/cms/AdminLoginDialog";
 
@@ -40,7 +40,15 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <SecretAdminTrigger>
-              <img src={crest} alt="South Australian College of English — Est. 1987" width={260} height={66} className="h-16 w-auto" />
+              <span className="inline-flex rounded-2xl bg-white px-5 py-4">
+                <img
+                  src={footerLogo}
+                  alt="South Australian College of English"
+                  width={800}
+                  height={203}
+                  className="h-12 w-auto"
+                />
+              </span>
             </SecretAdminTrigger>
             <p className="mt-4 font-display text-base font-semibold text-primary-foreground">CRICOS: 00094M</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-primary-foreground/70">

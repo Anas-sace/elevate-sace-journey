@@ -1,15 +1,17 @@
 import { Play } from "lucide-react";
 import classroom from "@/assets/campus-classroom.jpg";
-import lounge from "@/assets/campus-lounge.jpg";
+import foyer from "@/assets/campus-lounge.jpg";
 import adelaide from "@/assets/adelaide.jpg";
-import beach from "@/assets/life-beach.jpg";
+import building from "@/assets/campus-building.jpg";
+import excursion from "@/assets/life-excursion.jpg";
 import { Reveal, SectionHead } from "./ui";
 
 const TILES = [
-  { src: classroom, alt: "Small group class with a teacher in a bright SACE classroom", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 1200, h: 900, video: true },
-  { src: lounge, alt: "Students relaxing in the SACE student lounge", label: "Student lounge", meta: "Open all day", span: "", w: 1200, h: 1500 },
-  { src: adelaide, alt: "Adelaide city and parklands", label: "The city", meta: "5 min walk", span: "", w: 1400, h: 1600 },
-  { src: beach, alt: "Students at a beach day in South Australia", label: "Beyond campus", meta: "Weekly trips", span: "md:col-span-2", w: 1000, h: 1400 },
+  { src: classroom, alt: "Small group class with a teacher in a bright SACE classroom", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 1600, h: 1200, video: true },
+  { src: foyer, alt: "The Woodards House foyer and entry to the SACE campus", label: "Reception & foyer", meta: "Level 1, Woodards House", span: "", w: 580, h: 870 },
+  { src: building, alt: "Woodards House, the heritage building housing SACE on Waymouth Street", label: "Our building", meta: "47 Waymouth Street", span: "", w: 565, h: 767 },
+  { src: adelaide, alt: "Adelaide city skyline and the River Torrens parklands", label: "The city", meta: "5 min walk", span: "", w: 451, h: 652 },
+  { src: excursion, alt: "SACE students on an excursion at the University of Adelaide lawns", label: "Beyond campus", meta: "Weekly trips", span: "", w: 1600, h: 1200 },
 ];
 
 export function Campus() {

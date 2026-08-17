@@ -2,10 +2,10 @@ import campusClassroom from "@/assets/campus-classroom.jpg";
 import campusLounge from "@/assets/campus-lounge.jpg";
 import heroStudents from "@/assets/hero-students.jpg";
 import adelaide from "@/assets/adelaide.jpg";
-import lifeBeach from "@/assets/life-beach.jpg";
-import lifeFood from "@/assets/life-food.jpg";
+import lifeBeach from "@/assets/life-class.jpg";
+import lifeFood from "@/assets/life-awards.jpg";
 import lifeGraduation from "@/assets/life-graduation.jpg";
-import stayResidence from "@/assets/stay-residence.jpg";
+import stayResidence from "@/assets/teachers.jpg";
 
 export type CourseDetail = {
   slug: string;
