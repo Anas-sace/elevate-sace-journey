@@ -2,6 +2,17 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, Clock } from "lucide-react";
 import { PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Eyebrow, Reveal } from "@/components/sace/ui";
+import {
+  CourseBenefits,
+  CourseFaqs,
+  CourseFocus,
+  CourseHeroExtras,
+  CourseLevels,
+  CourseOptions,
+  CourseOverviewPanel,
+  CourseWeek,
+} from "@/components/sace/CourseRich";
+import { getCourseRich } from "@/data/course-seo";
 import { COURSES, getCourse, type CourseDetail } from "@/data/courses";
 
 export const Route = createFileRoute("/courses/$slug")({
@@ -16,22 +27,57 @@ export const Route = createFileRoute("/courses/$slug")({
         meta: [{ title: "Course not found — SACE Adelaide" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.course.name} — SACE Adelaide`;
-    const description = loaderData.course.intro;
+    const rich = getCourseRich(loaderData.course.slug);
+    const title = rich?.metaTitle ?? `${loaderData.course.name} — SACE Adelaide`;
+    const description = rich?.metaDescription ?? loaderData.course.intro;
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        ...(rich ? [{ name: "keywords", content: rich.keywords.join(", ") }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      ...(rich
+        ? {
+            scripts: [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@graph": [
+                    {
+                      "@type": "Course",
+                      name: rich.heroTitle,
+                      description: rich.metaDescription,
+                      provider: {
+                        "@type": "EducationalOrganization",
+                        name: "South Australian College of English (SACE)",
+                        url: "https://sace.edu.au/",
+                      },
+                    },
+                    {
+                      "@type": "FAQPage",
+                      mainEntity: rich.faqs.map((f) => ({
+                        "@type": "Question",
+                        name: f.q,
+                        acceptedAnswer: { "@type": "Answer", text: f.a },
+                      })),
+                    },
+                  ],
+                }),
+              },
+            ],
+          }
+        : {}),
     };
   },
   notFoundComponent: CourseNotFound,
   component: CoursePage,
 });
+
 
 function CourseNotFound() {
   return (
@@ -51,6 +97,7 @@ function CourseNotFound() {
 
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: CourseDetail };
+  const rich = getCourseRich(course.slug);
   const others = COURSES.filter((c) => c.slug !== course.slug).slice(0, 3);
 
   return (
@@ -61,8 +108,11 @@ function CoursePage() {
         <div className="shell">
           <Reveal>
             <Eyebrow>{course.tag ?? "Course"}</Eyebrow>
-            <h1 className="display-1 mt-6 max-w-4xl text-primary-foreground">{course.name}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{course.tagline}</p>
+            <h1 className="display-1 mt-6 max-w-4xl text-primary-foreground">{rich?.heroTitle ?? course.name}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
+              {rich?.heroTagline ?? course.tagline}
+            </p>
+            {rich ? <CourseHeroExtras rich={rich} /> : null}
             <nav aria-label="Breadcrumb" className="mt-8 text-sm text-primary-foreground/70">
               <Link to="/" className="underline-offset-4 hover:underline">
                 Home
@@ -78,7 +128,19 @@ function CoursePage() {
         </div>
       </section>
 
+      {rich ? (
+        <>
+          <CourseOverviewPanel rich={rich} />
+          <CourseLevels rich={rich} />
+          <CourseOptions rich={rich} />
+          <CourseWeek rich={rich} />
+          <CourseFocus rich={rich} />
+          <CourseBenefits rich={rich} />
+          <CourseFaqs rich={rich} />
+        </>
+      ) : (
       <section className="section">
+
         <div className="shell grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
           <div>
             <Reveal>
@@ -190,6 +252,9 @@ function CoursePage() {
           </aside>
         </div>
       </section>
+      )}
+
+
 
       <section className="section bg-surface">
         <div className="shell">
