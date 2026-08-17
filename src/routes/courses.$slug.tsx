@@ -252,6 +252,9 @@ function CoursePage() {
           </aside>
         </div>
       </section>
+      )}
+
+
 
       <section className="section bg-surface">
         <div className="shell">
