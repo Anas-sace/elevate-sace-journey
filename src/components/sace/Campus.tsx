@@ -9,7 +9,7 @@ import { Reveal, SectionHead } from "./ui";
 const TILES = [
   { src: classroom, alt: "SACE students in class celebrating their course certificates with their teacher", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 2000, h: 1500, video: true },
   { src: foyer, alt: "The Woodards House foyer and reception at the SACE campus", label: "Reception & foyer", meta: "Level 1, Woodards House", span: "", w: 1160, h: 1740 },
-  { src: building, alt: "Woodards House, the heritage building housing SACE on Waymouth Street", label: "Our building", meta: "47 Waymouth Street", span: "", w: 565, h: 767 },
+  { src: building, alt: "Woodards House, the heritage building housing SACE on Waymouth Street", label: "Our building", meta: "47 Waymouth Street", span: "", w: 2400, h: 1600 },
   { src: adelaide, alt: "Adelaide city skyline and the River Torrens parklands", label: "The city", meta: "5 min walk", span: "", w: 451, h: 652 },
   { src: excursion, alt: "SACE students on an excursion at the University of Adelaide lawns", label: "Beyond campus", meta: "Weekly trips", span: "", w: 1600, h: 1200 },
 ];
