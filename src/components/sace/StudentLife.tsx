@@ -1,16 +1,18 @@
-import beach from "@/assets/life-beach.jpg";
-import food from "@/assets/life-food.jpg";
+import arcade from "@/assets/life-beach.jpg";
+import celebration from "@/assets/life-food.jpg";
 import graduation from "@/assets/life-graduation.jpg";
-import lounge from "@/assets/campus-lounge.jpg";
-import classroom from "@/assets/campus-classroom.jpg";
+import awards from "@/assets/life-awards.jpg";
+import classFriends from "@/assets/life-class.jpg";
+import teachers from "@/assets/teachers.jpg";
 import { Reveal, SectionHead } from "./ui";
 
 const ITEMS = [
-  { src: beach, alt: "Students at a beach barbecue in South Australia", caption: "Beach days", w: 1000, h: 1400 },
-  { src: graduation, alt: "Graduating students throwing their caps in the air", caption: "Graduation", w: 1000, h: 800 },
-  { src: food, alt: "Students sharing street food at a night festival", caption: "Food nights", w: 1000, h: 1200 },
-  { src: lounge, alt: "Students studying together in the lounge", caption: "Study clubs", w: 1200, h: 1500 },
-  { src: classroom, alt: "Students laughing during a class activity", caption: "Class friends", w: 1200, h: 900 },
+  { src: arcade, alt: "SACE students together in an Adelaide arcade during a city excursion", caption: "City excursions", w: 1600, h: 1200 },
+  { src: graduation, alt: "SACE students holding their course completion certificates", caption: "Graduation day", w: 1200, h: 900 },
+  { src: celebration, alt: "Students celebrating together at a SACE class party", caption: "Class celebrations", w: 1600, h: 900 },
+  { src: awards, alt: "High school programme students with their certificates", caption: "High school programme", w: 1600, h: 1200 },
+  { src: classFriends, alt: "Students laughing together during a class activity", caption: "Class friends", w: 1600, h: 1100 },
+  { src: teachers, alt: "SACE teaching and student services team", caption: "Our teachers", w: 1600, h: 1067 },
 ];
 
 export function StudentLife() {
