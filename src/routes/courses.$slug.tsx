@@ -103,8 +103,8 @@ function CoursePage() {
   return (
     <PageShell>
       <section className="relative isolate overflow-hidden bg-primary pb-20 pt-36 text-primary-foreground md:pb-28 md:pt-44">
-        <img src={course.image} alt="" aria-hidden className="absolute inset-0 -z-20 size-full object-cover opacity-25" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/95 via-primary/85 to-primary-deep/95" />
+        <img src={course.image} alt="" aria-hidden className="absolute inset-0 -z-20 size-full object-cover opacity-90" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/85 via-primary/60 to-primary-deep/85" />
         <div className="shell">
           <Reveal>
             <Eyebrow>{course.tag ?? "Course"}</Eyebrow>
