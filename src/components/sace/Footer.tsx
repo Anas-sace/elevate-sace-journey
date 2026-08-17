@@ -44,8 +44,8 @@ export function Footer() {
                 <img
                   src={footerLogo}
                   alt="South Australian College of English"
-                  width={800}
-                  height={203}
+                  width={2076}
+                  height={528}
                   className="h-12 w-auto"
                 />
               </span>
