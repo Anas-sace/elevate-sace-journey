@@ -97,6 +97,7 @@ function CourseNotFound() {
 
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: CourseDetail };
+  const rich = getCourseRich(course.slug);
   const others = COURSES.filter((c) => c.slug !== course.slug).slice(0, 3);
 
   return (
@@ -107,8 +108,11 @@ function CoursePage() {
         <div className="shell">
           <Reveal>
             <Eyebrow>{course.tag ?? "Course"}</Eyebrow>
-            <h1 className="display-1 mt-6 max-w-4xl text-primary-foreground">{course.name}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{course.tagline}</p>
+            <h1 className="display-1 mt-6 max-w-4xl text-primary-foreground">{rich?.heroTitle ?? course.name}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
+              {rich?.heroTagline ?? course.tagline}
+            </p>
+            {rich ? <CourseHeroExtras rich={rich} /> : null}
             <nav aria-label="Breadcrumb" className="mt-8 text-sm text-primary-foreground/70">
               <Link to="/" className="underline-offset-4 hover:underline">
                 Home
@@ -124,7 +128,19 @@ function CoursePage() {
         </div>
       </section>
 
+      {rich ? (
+        <>
+          <CourseOverviewPanel rich={rich} />
+          <CourseLevels rich={rich} />
+          <CourseOptions rich={rich} />
+          <CourseWeek rich={rich} />
+          <CourseFocus rich={rich} />
+          <CourseBenefits rich={rich} />
+          <CourseFaqs rich={rich} />
+        </>
+      ) : (
       <section className="section">
+
         <div className="shell grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
           <div>
             <Reveal>
