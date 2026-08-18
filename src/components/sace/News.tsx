@@ -54,7 +54,28 @@ export function News() {
             </Reveal>
           ))}
         </ul>
+
+        <Reveal>
+          <div className="mt-12 flex flex-col items-center gap-4 rounded-4xl border border-border bg-surface p-8 text-center md:flex-row md:justify-between md:text-left">
+            <div>
+              <h3 className="font-display text-xl font-bold text-foreground">
+                Not sure which course suits you?
+              </h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ten quick questions, instant feedback and a course recommendation.
+              </p>
+            </div>
+            <a
+              href="#english-test"
+              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-7 text-sm font-semibold text-accent-foreground transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              Let&apos;s test your English
+              <ArrowUpRight aria-hidden className="size-4" />
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
+
   );
 }
