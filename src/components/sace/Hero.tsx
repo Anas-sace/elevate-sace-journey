@@ -26,7 +26,7 @@ export function Hero() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="main" className="relative isolate min-h-[100svh] overflow-hidden">
+    <section id="main" className="relative isolate overflow-hidden md:min-h-[100svh]">
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
@@ -39,11 +39,11 @@ export function Hero() {
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_42%,transparent_78%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(170deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_58%,transparent_92%)] md:bg-[linear-gradient(100deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_42%,transparent_78%)]"
       />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-black/25 md:bg-black/15" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-black/45 md:bg-black/15" />
 
-      <div className="shell flex min-h-[100svh] flex-col justify-center pb-20 pt-28 md:pb-24 md:pt-36">
+      <div className="shell flex flex-col justify-center pb-24 pt-28 md:min-h-[100svh] md:pb-24 md:pt-36">
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <motion.p
