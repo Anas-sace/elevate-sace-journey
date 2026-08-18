@@ -12,7 +12,7 @@ export type Review = {
   quote: string;
   rating: number;
   avatar: string;
-  /** Optional video testimonial (mp4/webm URL). */
+  /** Optional video testimonial (YouTube link or mp4/webm URL). */
   video?: string;
   poster?: string;
 };
@@ -37,7 +37,7 @@ export const DEFAULT_REVIEWS: Review[] = [
       "The teachers pushed me exactly as hard as I needed. My pathway offer arrived before I even finished the course.",
     rating: 5,
     avatar: s2,
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    video: "https://youtu.be/CPAo3GOEgJw",
   },
   {
     id: "linh",
@@ -48,7 +48,7 @@ export const DEFAULT_REVIEWS: Review[] = [
       "SACE helped me with IELTS, my visa and my first job interview. It felt like having family here.",
     rating: 5,
     avatar: s3,
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    video: "https://youtu.be/C_Y_sV2SVnI",
   },
   {
     id: "marco",
@@ -79,7 +79,7 @@ export const DEFAULT_REVIEWS: Review[] = [
       "Four weeks of IELTS preparation and mock tests every Friday. I walked into the real exam already knowing the room.",
     rating: 5,
     avatar: s3,
-    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    video: "https://youtu.be/I6K7T-fPkmg",
   },
 ];
 
