@@ -100,7 +100,9 @@ function Index() {
         <Stats />
         <Faq />
         <News />
+        <EnglishTest />
         <Apply />
+
       </main>
       <Footer />
       {cms === "edit" && (
