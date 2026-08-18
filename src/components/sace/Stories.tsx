@@ -77,35 +77,12 @@ export function Stories() {
       </div>
 
       {playing?.video ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Video review by ${playing.name}`}
-          className="fixed inset-0 z-[300] flex items-center justify-center bg-foreground/70 p-4 backdrop-blur-sm"
-          onClick={() => setPlaying(null)}
-        >
-          <div
-            className="w-full max-w-3xl overflow-hidden rounded-2xl bg-card shadow-lift"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
-              <p className="text-sm font-semibold">
-                {playing.name} · {playing.country}
-              </p>
-              <button type="button" onClick={() => setPlaying(null)} aria-label="Close video">
-                <X className="size-5" />
-              </button>
-            </div>
-            <video
-              src={playing.video}
-              {...(playing.poster ? { poster: playing.poster } : {})}
-              controls
-              autoPlay
-              playsInline
-              className="aspect-video w-full bg-black"
-            />
-          </div>
-        </div>
+        <VideoLightbox
+          src={playing.video}
+          title={`${playing.name} · ${playing.country}`}
+          {...(playing.poster ? { poster: playing.poster } : {})}
+          onClose={() => setPlaying(null)}
+        />
       ) : null}
     </section>
   );
