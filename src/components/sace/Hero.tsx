@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, PlayCircle, MouseIcon, Download } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
 import buildingImg from "@/assets/hero-building.jpg";
 import { ButtonLink, Counter } from "./ui";
+import { VideoLightbox } from "./VideoLightbox";
+
+const CAMPUS_FILM = "https://youtu.be/lczl252Y_Tc";
 
 const STATS = [
   { value: 40, suffix: "+", label: "Years in Adelaide" },
@@ -19,9 +23,10 @@ const COUNTRIES = [
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="main" className="relative isolate min-h-[100svh] overflow-hidden">
+    <section id="main" className="relative isolate overflow-hidden md:min-h-[100svh]">
       <div className="absolute inset-0 -z-20">
         <img
           src={heroImg}
@@ -29,16 +34,16 @@ export function Hero() {
           width={1600}
           height={1067}
           fetchPriority="high"
-          className="ken-burns size-full object-cover"
+          className="ken-burns size-full object-cover object-[62%_center] md:object-center"
         />
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_42%,transparent_78%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(170deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_58%,transparent_92%)] md:bg-[linear-gradient(100deg,var(--primary-deep)_0%,color-mix(in_oklab,var(--primary)_82%,transparent)_42%,transparent_78%)]"
       />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-black/25 md:bg-black/15" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-black/45 md:bg-black/15" />
 
-      <div className="shell flex min-h-[100svh] flex-col justify-center pb-24 pt-32 md:pt-36">
+      <div className="shell flex flex-col justify-center pb-24 pt-28 md:min-h-[100svh] md:pb-24 md:pt-36">
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <motion.p
@@ -92,7 +97,7 @@ export function Hero() {
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 border-t border-white/20 pt-8 sm:grid-cols-4"
+              className="mt-10 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 border-t border-white/20 pt-8 sm:grid-cols-4 md:mt-14 md:gap-y-8"
             >
               {STATS.map((s) => (
                 <div key={s.label}>
@@ -129,6 +134,7 @@ export function Hero() {
                 <div aria-hidden className="absolute inset-0 bg-linear-to-t from-black/55 to-transparent" />
                 <button
                   type="button"
+                  onClick={() => setPlaying(true)}
                   aria-label="Play the SACE campus film"
                   className="absolute inset-x-5 bottom-5 flex min-h-11 items-center gap-3 rounded-2xl bg-white/14 px-4 py-3 text-left text-white backdrop-blur-md transition-colors hover:bg-white/24"
                 >
@@ -171,6 +177,10 @@ export function Hero() {
         <MouseIcon aria-hidden className="size-4" />
         Scroll
       </motion.a>
+
+      {playing ? (
+        <VideoLightbox src={CAMPUS_FILM} title="Life at SACE Adelaide" onClose={() => setPlaying(false)} />
+      ) : null}
     </section>
   );
 }
