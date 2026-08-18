@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Quote, Play, Star, X } from "lucide-react";
+import { Quote, Play, Star } from "lucide-react";
 import { Reveal, SectionHead } from "./ui";
+import { VideoLightbox } from "./VideoLightbox";
 import { useCms } from "@/components/cms/CmsProvider";
 import type { Review } from "@/lib/reviews";
 
