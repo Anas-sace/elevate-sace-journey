@@ -15,7 +15,9 @@ import { Stories } from "@/components/sace/Stories";
 import { Stats } from "@/components/sace/Stats";
 import { Faq } from "@/components/sace/Faq";
 import { News } from "@/components/sace/News";
+import { EnglishTest } from "@/components/sace/EnglishTest";
 import { Apply } from "@/components/sace/Apply";
+
 import { Footer } from "@/components/sace/Footer";
 import { CmsProvider } from "@/components/cms/CmsProvider";
 import { getSiteContent } from "@/lib/cms.functions";
