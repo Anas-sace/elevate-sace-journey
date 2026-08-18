@@ -87,21 +87,29 @@ export function Counter({
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
     if (reduce) {
       setValue(to);
       return;
     }
     let raf = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setValue(Math.round(to * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
+    // Always land on the final number, even if the in-view observer never fires
+    // (small viewports, clipped ancestors, background tabs).
+    const safety = window.setTimeout(() => setValue(to), 2600);
+    const run = () => {
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setValue(Math.round(to * eased));
+        if (p < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    if (inView) run();
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(safety);
+    };
   }, [inView, to, duration, reduce]);
 
   return (
