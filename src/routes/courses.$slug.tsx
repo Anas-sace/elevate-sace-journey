@@ -24,11 +24,11 @@ export const Route = createFileRoute("/courses/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Course not found — SACE Adelaide" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Course not found | SACE Adelaide" }, { name: "robots", content: "noindex" }],
       };
     }
     const rich = getCourseRich(loaderData.course.slug);
-    const title = rich?.metaTitle ?? `${loaderData.course.name} — SACE Adelaide`;
+    const title = rich?.metaTitle ?? `${loaderData.course.name} | SACE Adelaide`;
     const description = rich?.metaDescription ?? loaderData.course.intro;
     return {
       meta: [

@@ -66,7 +66,7 @@ export function Courses() {
                 <h3 className="display-3 mt-6">Not sure which one?</h3>
                 <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
                   Take a free 15-minute placement chat with our academic team. We will tell you
-                  exactly which level to start at — no obligation.
+                  exactly which level to start at, no obligation.
                 </p>
               </div>
               <a

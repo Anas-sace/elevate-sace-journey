@@ -84,7 +84,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         level: "Elementary",
         stage: "Foundation",
         description:
-          "Build a solid foundation in everyday English — greetings, basic grammar, and simple conversation for daily life.",
+          "Build a solid foundation in everyday English, greetings, basic grammar, and simple conversation for daily life.",
       },
       {
         level: "Pre-Intermediate",
@@ -174,9 +174,9 @@ export const COURSE_SEO: Record<string, CourseRich> = {
             time: "14:00 – 15:30",
             cells: [
               "Special Studies (25h/wk only)",
-              "—",
+              "-",
               "Special Studies (25h/wk only)",
-              "—",
+              "-",
               "Club SACE Excursion",
             ],
           },
@@ -211,7 +211,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
     ],
     focusHeading: "What the course focuses on",
     focusIntro:
-      "Every class at SACE builds the four macro skills through engaging resources — podcasts, media, guest speakers, and excursions. The SACE “English Only” policy ensures real practice beyond the classroom.",
+      "Every class at SACE builds the four macro skills through engaging resources, podcasts, media, guest speakers, and excursions. The SACE “English Only” policy ensures real practice beyond the classroom.",
     pillars: [
       { title: "Speaking & Pronunciation", detail: "Real-life situations, debates, presentations." },
       { title: "Listening", detail: "Podcasts, media and authentic audio content." },
@@ -294,7 +294,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         q: "Am I permitted to work while studying in South Australia?",
         a: "Under current Australian student visa regulations, eligible students are generally permitted to work up to 48 hours per fortnight. Work entitlements depend on your visa type and individual circumstances. We recommend checking current conditions with the Australian Government's official immigration website.",
         link: {
-          label: "Work rights for student visa holders — homeaffairs.gov.au",
+          label: "Work rights for student visa holders, homeaffairs.gov.au",
           href: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500/temporary-relaxation-of-working-hours-for-student-visa-holders",
         },
       },

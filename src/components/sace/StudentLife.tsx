@@ -22,7 +22,7 @@ export function StudentLife() {
         <SectionHead
           eyebrow="Student life"
           title="You will remember the friendships longer than the grammar."
-          intro="Club SACE runs something every week — trips, sport, festivals, dinners. Joining in is the fastest way to become fluent."
+          intro="Club SACE runs something every week, trips, sport, festivals, dinners. Joining in is the fastest way to become fluent."
         />
 
         <div className="mt-14 columns-2 gap-4 lg:columns-3 [&>*]:mb-4">

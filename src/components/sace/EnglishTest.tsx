@@ -11,7 +11,7 @@ type Question = {
   why: string;
 };
 
-/** Deliberately tricky items — most takers will slip on several. */
+/** Deliberately tricky items, most takers will slip on several. */
 const QUESTIONS: Question[] = [
   {
     prompt: "Scarcely ____ the door when the phone rang.",
@@ -29,7 +29,7 @@ const QUESTIONS: Question[] = [
     prompt: "The committee ____ still divided over the proposal at last night's meeting.",
     options: ["were", "was being", "has been", "is"],
     answer: 0,
-    why: "In Australian English, a collective noun takes a plural verb when the members act individually — the committee were divided among themselves.",
+    why: "In Australian English, a collective noun takes a plural verb when the members act individually, the committee were divided among themselves.",
   },
   {
     prompt: "Had she taken the earlier train, she ____ the interview.",
@@ -64,7 +64,7 @@ const QUESTIONS: Question[] = [
     prompt: "Choose the most precise word: The minister gave a ____ answer that satisfied nobody.",
     options: ["evasive", "invisible", "reluctant", "adverse"],
     answer: 0,
-    why: "“Evasive” means deliberately avoiding a direct reply — exactly why the answer satisfied nobody.",
+    why: "“Evasive” means deliberately avoiding a direct reply, exactly why the answer satisfied nobody.",
   },
   {
     prompt: "It's high time we ____ about the deadline.",
@@ -123,7 +123,7 @@ function resultFor(score: number) {
     course: "Cambridge CELTA Online",
     slug: "cambridge-celta-online",
     blurb:
-      "Outstanding control of complex English. You may be ready for teacher training or a direct university pathway — talk to our team.",
+      "Outstanding control of complex English. You may be ready for teacher training or a direct university pathway, talk to our team.",
   };
 }
 
@@ -240,7 +240,7 @@ export function EnglishTest() {
                     >
                       <p className="font-display text-sm font-bold uppercase tracking-[0.14em]">
                         {picked === q.answer
-                          ? "Yes — you are right!"
+                          ? "Yes, you are right!"
                           : `Not quite. Correct answer: ${q.options[q.answer]}`}
                       </p>
                       <p className="mt-2 text-sm leading-relaxed text-white/80">{q.why}</p>
@@ -292,7 +292,7 @@ export function EnglishTest() {
                           </p>
                           <p className="mt-2 pl-8 text-sm text-white/75">
                             {!ok
-                              ? `You chose “${given !== undefined ? question.options[given] : "—"}”. The correct answer is “${question.options[question.answer]}”. `
+                              ? `You chose “${given !== undefined ? question.options[given] : "-"}”. The correct answer is “${question.options[question.answer]}”. `
                               : ""}
                             {question.why}
                           </p>

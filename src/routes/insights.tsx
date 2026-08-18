@@ -5,7 +5,7 @@ import food from "@/assets/life-food.jpg";
 import beach from "@/assets/life-beach.jpg";
 import adelaide from "@/assets/adelaide.jpg";
 
-const TITLE = "Insights — Study English in Adelaide | SACE";
+const TITLE = "Insights | Study English in Adelaide | SACE";
 const DESCRIPTION =
   "Articles, guides and updates from SACE Adelaide to help you improve your English, choose the right course and settle into life in Australia.";
 
@@ -27,7 +27,7 @@ const POSTS = [
   {
     title: "7 Things International Students Love About Living in Adelaide",
     excerpt:
-      "Ask an international student who came to study English in Adelaide what they miss most after they go home. It's rarely the classroom — and rarely even the English course itself.",
+      "Ask an international student who came to study English in Adelaide what they miss most after they go home. It's rarely the classroom, and rarely even the English course itself.",
     image: adelaide,
     category: "Student life",
   },
@@ -41,7 +41,7 @@ const POSTS = [
   {
     title: "Study English in Adelaide vs Sydney vs Melbourne: Which City Is Right for You?",
     excerpt:
-      "You have decided to study English in Australia. Now comes the harder question — which city gives you the best mix of cost, class size and everyday English practice?",
+      "You have decided to study English in Australia. Now comes the harder question, which city gives you the best mix of cost, class size and everyday English practice?",
     image: beach,
     category: "Guides",
   },

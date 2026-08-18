@@ -8,7 +8,7 @@ const STEPS = [
   { step: "Arrival", body: "Airport pickup, accommodation and orientation in your first week." },
   { step: "Study", body: "Small classes, weekly feedback and a clear path to the next level." },
   { step: "Graduate", body: "Certificate, transcript and a pathway offer if you want one." },
-  { step: "Career", body: "University, work, or home again — with English that opens doors." },
+  { step: "Career", body: "University, work, or home again, with English that opens doors." },
 ];
 
 export function Journey() {

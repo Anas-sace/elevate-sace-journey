@@ -90,7 +90,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     try {
       window.localStorage.setItem(cacheKey(code), JSON.stringify(dict.current));
     } catch {
-      /* quota — cache is best effort */
+      /* quota, cache is best effort */
     }
   }, []);
 

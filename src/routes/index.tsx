@@ -27,7 +27,7 @@ const EditorOverlay = lazy(() =>
   import("@/components/cms/EditorOverlay").then((m) => ({ default: m.EditorOverlay })),
 );
 
-const TITLE = "SACE Adelaide — Study English in Australia";
+const TITLE = "SACE Adelaide | Study English in Australia";
 const DESCRIPTION =
   "South Australian College of English: General English, IELTS and university pathway courses in the heart of Adelaide. NEAS accredited since 1987. Apply in 10 minutes.";
 

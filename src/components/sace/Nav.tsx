@@ -87,7 +87,7 @@ export function Nav() {
         <Link
           to="/"
           className="flex shrink-0 items-center"
-          aria-label="SACE — South Australian College of English, home"
+          aria-label="SACE, South Australian College of English, home"
         >
           <img
             src={logo}

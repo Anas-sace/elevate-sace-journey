@@ -6,7 +6,7 @@ import campusLounge from "@/assets/campus-lounge.jpg";
 import campusClassroom from "@/assets/campus-classroom.jpg";
 import adelaide from "@/assets/adelaide.jpg";
 
-const TITLE = "About SACE Adelaide — English College Since 1987";
+const TITLE = "About SACE Adelaide | English College Since 1987";
 const DESCRIPTION =
   "Established in 1987, the South Australian College of English is one of Australia's longest-running NEAS-accredited English colleges, in the heart of Adelaide.";
 
@@ -35,7 +35,7 @@ const PILLARS = [
   {
     icon: Building2,
     title: "Wonderful location",
-    body: "Our Adelaide campus is housed in a beautifully renovated 1920s heritage building right in the heart of the city — cafés, shopping and cultural landmarks at your doorstep, with excellent public transport all around.",
+    body: "Our Adelaide campus is housed in a beautifully renovated 1920s heritage building right in the heart of the city, cafés, shopping and cultural landmarks at your doorstep, with excellent public transport all around.",
   },
   {
     icon: HeartHandshake,
@@ -60,7 +60,7 @@ const PILLARS = [
   {
     icon: Award,
     title: "Accommodation",
-    body: "Homestays with welcoming local families, hostels and share housing — each option chosen to give students a safe, comfortable and enjoyable stay.",
+    body: "Homestays with welcoming local families, hostels and share housing, each option chosen to give students a safe, comfortable and enjoyable stay.",
   },
 ];
 
@@ -70,7 +70,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About"
         title="One of Australia's longest-running English language colleges."
-        intro="Established in 1987, SACE has built a proud tradition of excellence in language education — and continues to help students from around the world reach their goals."
+        intro="Established in 1987, SACE has built a proud tradition of excellence in language education, and continues to help students from around the world reach their goals."
         image={campusLounge}
       />
 
@@ -89,7 +89,7 @@ function AboutPage() {
               </p>
               <p>
                 Accredited by the National ELT Accreditation Scheme (NEAS), SACE upholds the highest global
-                standards in English teaching. It is also a recognised Teacher Training Centre — not only do
+                standards in English teaching. It is also a recognised Teacher Training Centre, not only do
                 students learn from the best, many English teachers come here to be trained and mentored.
               </p>
               <p>
@@ -196,7 +196,7 @@ function AboutPage() {
             <SectionHead eyebrow="Our Campus" title="A 1920s heritage building in the centre of the city." />
             <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
               <p>
-                Woodards House, Level 1, 47 Waymouth Street — a beautifully renovated heritage building minutes
+                Woodards House, Level 1, 47 Waymouth Street, a beautifully renovated heritage building minutes
                 from Rundle Mall, the Central Market, the Art Gallery and the tram line to Glenelg Beach.
               </p>
               <p>

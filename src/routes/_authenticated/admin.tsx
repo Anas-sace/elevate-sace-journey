@@ -144,7 +144,7 @@ function AdminDashboard() {
                 <li key={path} className="flex flex-wrap items-center gap-3 py-3 text-sm">
                   <code className="rounded bg-muted px-2 py-1 text-[11px]">{path}</code>
                   <span className="min-w-0 flex-1 truncate text-muted-foreground">
-                    {ov.text ?? ov.src ?? ov.video ?? ov.href ?? (ov.hidden ? "hidden" : "—")}
+                    {ov.text ?? ov.src ?? ov.video ?? ov.href ?? (ov.hidden ? "hidden" : "-")}
                   </span>
                   <button
                     onClick={async () => {

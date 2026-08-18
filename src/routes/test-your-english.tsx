@@ -45,7 +45,7 @@ const QUESTIONS: Question[] = [
     prompt: "If it ____ tomorrow, we'll move the barbecue indoors.",
     options: ["will rain", "rains", "rained", "would rain"],
     answer: 1,
-    why: "In a first conditional, the if-clause uses the present simple and the main clause uses “will” — “If it rains, we'll…”.",
+    why: "In a first conditional, the if-clause uses the present simple and the main clause uses “will”, “If it rains, we'll…”.",
   },
   {
     prompt: "This building ____ in 1887 by a local architect.",
@@ -63,7 +63,7 @@ const QUESTIONS: Question[] = [
     prompt: "Choose the best word: The evidence was ____, so the case was dismissed.",
     options: ["inconclusive", "unbelievable", "incorrect", "invisible"],
     answer: 0,
-    why: "“Inconclusive” means it did not prove anything either way — the precise reason a case would be dismissed.",
+    why: "“Inconclusive” means it did not prove anything either way, the precise reason a case would be dismissed.",
   },
   {
     prompt: "Hardly ____ the meeting started when the fire alarm went off.",
@@ -84,7 +84,7 @@ function levelFor(score: number) {
   if (score <= 5) return { level: "B1 · Pre-Intermediate", course: "General English Course", blurb: "You can handle familiar topics. General English with an English Plus elective will lift your accuracy and confidence." };
   if (score <= 7) return { level: "B1+–B2 · Intermediate", course: "IELTS Preparation", blurb: "Strong working English. Exam preparation will sharpen your skills for university or migration requirements." };
   if (score <= 9) return { level: "B2+–C1 · Upper-Intermediate", course: "English for Tertiary Studies", blurb: "You're close to academic level. Tertiary Studies will prepare you for Australian university assessment." };
-  return { level: "C1–C2 · Advanced", course: "Cambridge CELTA Online", blurb: "Excellent English. You may be ready for teacher training or a direct university pathway — talk to our team." };
+  return { level: "C1–C2 · Advanced", course: "Cambridge CELTA Online", blurb: "Excellent English. You may be ready for teacher training or a direct university pathway, talk to our team." };
 }
 
 export const Route = createFileRoute("/test-your-english")({
@@ -252,7 +252,7 @@ function TestPage() {
                         </p>
                         {!ok ? (
                           <p className="mt-2 pl-8 text-sm text-muted-foreground">
-                            You chose “{given !== undefined ? question.options[given] : "—"}”. The correct answer is “
+                            You chose “{given !== undefined ? question.options[given] : ""}”. The correct answer is “
                             {question.options[question.answer]}”. {question.why}
                           </p>
                         ) : (

@@ -4,7 +4,7 @@ import { PageHero, PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Reveal, SectionHead } from "@/components/sace/ui";
 import lounge from "@/assets/campus-lounge.jpg";
 
-const TITLE = "Student Services — TOEIC, Counselling, Accommodation, Club SACE";
+const TITLE = "Student Services | TOEIC, Counselling, Accommodation, Club SACE";
 const DESCRIPTION =
   "SACE Adelaide student services: official TOEIC testing, student counselling and educational placement, homestay and share accommodation, and the Club SACE activity programme.";
 
@@ -58,7 +58,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Everything around the classroom, taken care of."
-        intro="Testing, counselling, accommodation and a weekly social programme — the support that turns a course into an experience."
+        intro="Testing, counselling, accommodation and a weekly social programme, the support that turns a course into an experience."
         image={lounge}
       />
 
@@ -124,7 +124,7 @@ function ServicesPage() {
       <Block id="accommodation" eyebrow="Accommodation" title="Homestay, hostel or share housing">
         <p>
           Accommodation is an important part of a student's overall experience. SACE takes great care in selecting
-          student accommodation — homestay, hostel or apartment.
+          student accommodation, homestay, hostel or apartment.
         </p>
         <p>
           <strong className="text-foreground">Homestay</strong> is our most popular option. Families are carefully
@@ -145,7 +145,7 @@ function ServicesPage() {
 
       <Block id="club-sace" eyebrow="Activities" title="Club SACE" tinted>
         <p>
-          Club SACE is a weekly afternoon activity programme organised by the college — a great way to make
+          Club SACE is a weekly afternoon activity programme organised by the college, a great way to make
           Australian and international friends. It includes a range of inexpensive, fun social activities around
           Adelaide: beaches, national parks, cultural institutes, seasonal events and sports like tennis and
           football.

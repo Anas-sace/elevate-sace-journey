@@ -4,7 +4,7 @@ import { PageHero, PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Reveal, SectionHead } from "@/components/sace/ui";
 import beach from "@/assets/life-beach.jpg";
 
-const TITLE = "Customised Study Tours in Adelaide — SACE";
+const TITLE = "Customised Study Tours in Adelaide | SACE";
 const DESCRIPTION =
   "Tailored study tours for schools, universities, groups and organisations: English classes, afternoon excursions, homestay accommodation and airport transfers in Adelaide.";
 
@@ -36,7 +36,7 @@ const INCLUSIONS = [
   {
     icon: Home,
     title: "Homestay accommodation",
-    body: "Students stay with an Australian family and share family life. All meals are included — breakfast, packed lunch and dinner.",
+    body: "Students stay with an Australian family and share family life. All meals are included, breakfast, packed lunch and dinner.",
   },
   {
     icon: Plane,
@@ -73,7 +73,7 @@ function StudyToursPage() {
       <PageHero
         eyebrow="Study Tours"
         title="Customised study tours, built around your group."
-        intro="SACE offers customised study tours for schools, universities, groups and organisations — tailored to each group's interests, requirements and focus."
+        intro="SACE offers customised study tours for schools, universities, groups and organisations, tailored to each group's interests, requirements and focus."
         image={beach}
       />
 
