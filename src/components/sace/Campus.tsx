@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Play } from "lucide-react";
 import classroom from "@/assets/campus-classroom.jpg";
 import foyer from "@/assets/campus-lounge.jpg";
@@ -5,6 +6,9 @@ import adelaide from "@/assets/adelaide.jpg";
 import building from "@/assets/hero-building.jpg";
 import excursion from "@/assets/life-excursion.jpg";
 import { Reveal, SectionHead } from "./ui";
+import { VideoLightbox } from "./VideoLightbox";
+
+const CAMPUS_FILM = "https://youtu.be/lczl252Y_Tc";
 
 const TILES = [
   { src: classroom, alt: "SACE students in class celebrating their course certificates with their teacher", label: "Classrooms", meta: "Max 18 students", span: "md:col-span-2 md:row-span-2", w: 2000, h: 1500, video: true },
@@ -15,6 +19,8 @@ const TILES = [
 ];
 
 export function Campus() {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="campus" className="section bg-surface">
       <div className="shell">
@@ -40,6 +46,7 @@ export function Campus() {
                 {t.video ? (
                   <button
                     type="button"
+                    onClick={() => setOpen(true)}
                     aria-label={`Play the ${t.label.toLowerCase()} video tour`}
                     className="absolute right-5 top-5 inline-flex size-12 items-center justify-center rounded-full bg-white/18 text-white backdrop-blur-md transition-colors hover:bg-white/32"
                   >
@@ -55,6 +62,10 @@ export function Campus() {
           ))}
         </div>
       </div>
+
+      {open ? (
+        <VideoLightbox src={CAMPUS_FILM} title="Life at SACE Adelaide" onClose={() => setOpen(false)} />
+      ) : null}
     </section>
   );
 }
