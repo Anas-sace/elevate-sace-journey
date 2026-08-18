@@ -150,7 +150,7 @@ export function Hero() {
               </div>
             </div>
 
-            <ul className="pointer-events-none absolute -left-10 top-10 space-y-3">
+            <ul className="pointer-events-none absolute -left-10 top-10 hidden space-y-3 lg:block">
               {COUNTRIES.map((c, i) => (
                 <motion.li
                   key={c.name}
