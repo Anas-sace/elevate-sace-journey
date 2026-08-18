@@ -94,7 +94,7 @@ export function Counter({
     let raf = 0;
     // Always land on the final number, even if the in-view observer never fires
     // (small viewports, clipped ancestors, background tabs).
-    const safety = window.setTimeout(() => setValue(to), 2600);
+    const safety = window.setTimeout(() => setValue(to), 1200);
     const run = () => {
       const start = performance.now();
       const tick = (now: number) => {
