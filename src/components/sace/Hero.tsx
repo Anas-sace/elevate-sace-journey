@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, PlayCircle, MouseIcon, Download } from "lucide-react";
+import { ArrowRight, PlayCircle, MouseIcon, Download, GraduationCap } from "lucide-react";
 import heroImg from "@/assets/hero-students.jpg";
 import buildingImg from "@/assets/hero-building.jpg";
 import { ButtonLink, Counter } from "./ui";
@@ -84,6 +84,9 @@ export function Hero() {
             >
               <ButtonLink href="#apply" variant="accent">
                 Apply now <ArrowRight aria-hidden className="size-4" />
+              </ButtonLink>
+              <ButtonLink href="#english-test" variant="ghostLight">
+                <GraduationCap aria-hidden className="size-4" /> Let&apos;s test your English
               </ButtonLink>
               <ButtonLink href="#courses" variant="ghostLight">
                 Explore courses
