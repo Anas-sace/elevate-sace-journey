@@ -34,7 +34,7 @@ export function Hero() {
           width={1600}
           height={1067}
           fetchPriority="high"
-          className="size-full object-cover object-[60%_top] md:ken-burns md:object-center"
+          className="size-full object-cover object-[52%_18%] md:ken-burns md:object-center"
         />
       </div>
       <div
