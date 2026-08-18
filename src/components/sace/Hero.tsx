@@ -34,7 +34,7 @@ export function Hero() {
           width={1600}
           height={1067}
           fetchPriority="high"
-          className="ken-burns size-full object-cover object-[62%_center] md:object-center"
+          className="size-full object-cover object-[52%_18%] md:ken-burns md:object-center"
         />
       </div>
       <div
@@ -122,10 +122,10 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, scale: 0.96, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative hidden lg:block"
+            className="relative block"
           >
             <div className="glass-dark overflow-hidden rounded-4xl p-2 shadow-lift">
-              <div className="relative aspect-4/5 overflow-hidden rounded-3xl">
+              <div className="relative aspect-16/10 overflow-hidden rounded-3xl sm:aspect-video lg:aspect-4/5">
                 <img
                   src={buildingImg}
                   alt="SACE students outside Woodards House, the college building on Waymouth Street, Adelaide"
@@ -150,7 +150,7 @@ export function Hero() {
               </div>
             </div>
 
-            <ul className="pointer-events-none absolute -left-10 top-10 space-y-3">
+            <ul className="pointer-events-none absolute -left-10 top-10 hidden space-y-3 lg:block">
               {COUNTRIES.map((c, i) => (
                 <motion.li
                   key={c.name}
