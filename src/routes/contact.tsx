@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone, Printer } from "lucide-react";
 import { PageHero, PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Reveal, SectionHead } from "@/components/sace/ui";
 
-const TITLE = "Contact SACE Adelaide — Talk to Our Team";
+const TITLE = "Contact SACE Adelaide | Talk to Our Team";
 const DESCRIPTION =
   "Contact the South Australian College of English: Woodards House, Level 1, 47 Waymouth Street, Adelaide SA 5000. Phone +61 8 8410 5222 or email registrar@sacecoll.sa.edu.au.";
 
@@ -39,7 +39,7 @@ function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Feel free to write to us anytime."
-        intro="Our registrar team answers every enquiry personally — usually within one business day."
+        intro="Our registrar team answers every enquiry personally, usually within one business day."
       />
 
       <section className="section">

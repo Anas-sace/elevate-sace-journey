@@ -15,7 +15,7 @@ const FEATURES = [
   {
     icon: Route,
     title: "University pathways",
-    body: "Direct entry agreements with leading South Australian universities and colleges — no IELTS re-sit required.",
+    body: "Direct entry agreements with leading South Australian universities and colleges, no IELTS re-sit required.",
   },
   {
     icon: HeartHandshake,

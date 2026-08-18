@@ -5,7 +5,7 @@ import { Reveal, SectionHead, ButtonLink } from "@/components/sace/ui";
 import { COURSES } from "@/data/courses";
 import campus from "@/assets/campus-classroom.jpg";
 
-const TITLE = "English Courses in Adelaide — SACE";
+const TITLE = "English Courses in Adelaide | SACE";
 const DESCRIPTION =
   "General English, ETS, English Plus, High School, Evergreen, IELTS, PTE and Cambridge CELTA courses at the South Australian College of English in Adelaide.";
 
@@ -81,7 +81,7 @@ function CoursesIndex() {
                     >
                       View course
                       <ArrowUpRight aria-hidden className="size-4" />
-                      <span className="sr-only">— {c.name}</span>
+                      <span className="sr-only">- {c.name}</span>
                     </Link>
                   </div>
                 </article>
@@ -97,7 +97,7 @@ function CoursesIndex() {
             align="center"
             eyebrow="Not sure?"
             title="Take a free placement chat."
-            intro="Fifteen minutes with our academic team and you will know exactly which course and level to start at — with no obligation."
+            intro="Fifteen minutes with our academic team and you will know exactly which course and level to start at, with no obligation."
           />
           <div className="mt-10 flex justify-center">
             <ButtonLink href="/#apply">Book a placement chat</ButtonLink>

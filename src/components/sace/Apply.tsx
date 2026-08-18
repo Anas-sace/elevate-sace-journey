@@ -39,7 +39,7 @@ export function Apply() {
             {sent ? (
               <div role="status" className="py-16 text-center">
                 <CheckCircle2 aria-hidden className="mx-auto size-12 text-primary" />
-                <h2 className="display-3 mt-5 text-foreground">Account created — welcome to SACE.</h2>
+                <h2 className="display-3 mt-5 text-foreground">Account created, welcome to SACE.</h2>
                 <p className="mt-3 text-sm text-muted-foreground">
                   An 8-digit login code is on its way to your email. Our admissions team will be in
                   touch within one business day.
@@ -61,11 +61,11 @@ export function Apply() {
                   </span>
                 </div>
 
-                <img src={logo} alt="SACE — South Australian College of English" className="mx-auto mt-8 h-12 w-auto" />
+                <img src={logo} alt="SACE, South Australian College of English" className="mx-auto mt-8 h-12 w-auto" />
 
                 <h2 className="display-3 mt-6 text-center text-primary">Create your account</h2>
                 <p className="mt-2 text-center text-sm text-muted-foreground">
-                  Start your SACE journey — takes 60 seconds
+                  Start your SACE journey, takes 60 seconds
                 </p>
 
                 <div className="mt-8 grid gap-x-5 gap-y-5 sm:grid-cols-2">

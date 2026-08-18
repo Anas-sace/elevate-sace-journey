@@ -26,7 +26,7 @@ export function Campus() {
       <div className="shell">
         <SectionHead
           eyebrow="Campus experience"
-          title="Level 1, Waymouth Street — the best-located classroom in Adelaide."
+          title="Level 1, Waymouth Street | the best-located classroom in Adelaide."
           intro="Everything you need is in one building, and everything else is a short walk away."
         />
 

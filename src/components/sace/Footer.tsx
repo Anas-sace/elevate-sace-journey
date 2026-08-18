@@ -44,7 +44,7 @@ export function Footer() {
               <span className="inline-flex">
                 <img
                   src={crestLogo.url}
-                  alt="South Australian College of English — Est. 1987, CRICOS 00094M"
+                  alt="South Australian College of English, Est. 1987, CRICOS 00094M"
                   className="h-28 w-auto"
                 />
               </span>
@@ -106,7 +106,7 @@ export function Footer() {
           <div>
             <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em]">Stay in touch</h2>
             <p className="mt-5 text-sm text-primary-foreground/70">
-              Intake dates, scholarships and student stories — once a month.
+              Intake dates, scholarships and student stories, once a month.
             </p>
             <form onSubmit={onSubmit} className="mt-5">
               <label htmlFor="newsletter" className="sr-only">
@@ -129,7 +129,7 @@ export function Footer() {
                 </button>
               </div>
               <p role="status" className="mt-2 min-h-5 text-xs text-accent">
-                {subscribed ? "Thanks — you're on the list." : ""}
+                {subscribed ? "Thanks, you're on the list." : ""}
               </p>
             </form>
 

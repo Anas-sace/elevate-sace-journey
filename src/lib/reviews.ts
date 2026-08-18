@@ -1,4 +1,4 @@
-/** Student reviews — sample data plus the shape the superadmin dashboard edits. */
+/** Student reviews, sample data plus the shape the superadmin dashboard edits. */
 
 import s1 from "@/assets/student-1.jpg";
 import s2 from "@/assets/student-2.jpg";
@@ -74,7 +74,7 @@ export const DEFAULT_REVIEWS: Review[] = [
     id: "pablo",
     name: "Pablo Herrera",
     country: "Chile",
-    now: "IELTS Preparation graduate — Band 7.5",
+    now: "IELTS Preparation graduate, Band 7.5",
     quote:
       "Four weeks of IELTS preparation and mock tests every Friday. I walked into the real exam already knowing the room.",
     rating: 5,

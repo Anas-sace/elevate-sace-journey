@@ -42,7 +42,7 @@ export function Accommodation() {
         <SectionHead
           eyebrow="Accommodation"
           title="Somewhere safe to live, sorted before you land."
-          intro="Our accommodation team places every student personally — and checks in again after your first fortnight."
+          intro="Our accommodation team places every student personally, and checks in again after your first fortnight."
         />
 
         <ul className="mt-14 grid gap-5 lg:grid-cols-3">

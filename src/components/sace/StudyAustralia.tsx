@@ -6,7 +6,7 @@ const REASONS = [
   { icon: ShieldCheck, title: "Safe", body: "Adelaide is consistently ranked among the world's most liveable and safest cities." },
   { icon: Users, title: "Multicultural", body: "A city where more than 200 languages are already spoken at home." },
   { icon: Briefcase, title: "Career", body: "Work up to 48 hours a fortnight while you study on a student visa." },
-  { icon: Sun, title: "Lifestyle", body: "Beaches, wine regions and festivals — all within 30 minutes of campus." },
+  { icon: Sun, title: "Lifestyle", body: "Beaches, wine regions and festivals | all within 30 minutes of campus." },
   { icon: Landmark, title: "Universities", body: "Three world-ranked universities and a strong regional migration profile." },
   { icon: BookOpenCheck, title: "Quality", body: "Nationally regulated education with student protections built into law." },
 ];
@@ -38,7 +38,7 @@ export function StudyAustralia() {
           <Reveal>
             <Eyebrow>Study in Australia</Eyebrow>
             <h2 className="display-2 mt-5">
-              A small city with a big future — and room for you in it.
+              A small city with a big future, and room for you in it.
             </h2>
             <p className="lede mt-5">
               Adelaide gives you everything a bigger city does: world-class education, real career

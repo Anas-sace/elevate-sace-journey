@@ -160,7 +160,7 @@ export function CourseWeek({ rich }: { rich: CourseRich }) {
 
         <div className="mt-6 overflow-x-auto rounded-4xl border border-border bg-card">
           <table className="w-full min-w-[46rem] border-collapse text-left text-sm">
-            <caption className="sr-only">Sample timetable — {table.title}</caption>
+            <caption className="sr-only">Sample timetable, {table.title}</caption>
             <thead>
               <tr className="bg-secondary">
                 <th scope="col" className="px-5 py-4 text-xs font-bold uppercase tracking-[0.12em] text-secondary-foreground">

@@ -35,7 +35,7 @@ export const COURSES: CourseDetail[] = [
     tag: "Most popular",
     image: campusClassroom,
     intro:
-      "Designed to improve your everyday communication for future study, work, travel or a career change — available day or evening.",
+      "Designed to improve your everyday communication for future study, work, travel or a career change, available day or evening.",
     overview: [
       "SACE General English programmes are designed to improve students’ English language communication skills to prepare for future study, work, travel or career change.",
       "Core classes concentrate on developing grammar, vocabulary, speaking, listening, reading, writing and pronunciation skills in real-life situations. Afternoon special-studies classes for General English (Intensive) are offered twice a week.",
@@ -85,7 +85,7 @@ export const COURSES: CourseDetail[] = [
     slug: "english-for-tertiary-studies",
     name: "English for Tertiary Studies",
     shortName: "English for Tertiary Studies",
-    tagline: "Direct entry to university, TAFE and VET — without an IELTS test.",
+    tagline: "Direct entry to university, TAFE and VET, without an IELTS test.",
     tag: "Direct entry",
     image: lifeGraduation,
     intro:
@@ -128,10 +128,10 @@ export const COURSES: CourseDetail[] = [
       {
         title: "Which level do you need?",
         items: [
-          "ETS 1 — for courses with a minimum IELTS 5.5 requirement",
-          "ETS 2 — for courses with a minimum IELTS 6.0 requirement",
-          "ETS 3 — for courses with a minimum IELTS 6.5 requirement",
-          "ETS 4 — for courses with a minimum IELTS 7.0 requirement",
+          "ETS 1, for courses with a minimum IELTS 5.5 requirement",
+          "ETS 2, for courses with a minimum IELTS 6.0 requirement",
+          "ETS 3, for courses with a minimum IELTS 6.5 requirement",
+          "ETS 4, for courses with a minimum IELTS 7.0 requirement",
         ],
       },
     ],
@@ -162,7 +162,7 @@ export const COURSES: CourseDetail[] = [
     tagline: "General English combined with golf, tennis or real work experience.",
     image: lifeBeach,
     intro:
-      "Combine Standard General English classes with the thing you love — on the course, on the court, or in an Australian workplace.",
+      "Combine Standard General English classes with the thing you love, on the course, on the court, or in an Australian workplace.",
     overview: [
       "English plus Golf: golf is an accessible and popular sport in Australia, and Adelaide has a large number of both public and private golf courses. The SACE English & Golf programme lets students learn and practise golf while improving their English.",
       "English plus Tennis: tennis coaching and practice at the Memorial Drive Tennis Club and the Peter Smith Tennis Academy, combined with Standard General English instruction at SACE. The facilities include grass, clay, rebound ace and synthetic grass courts, and are just a short walk or five-minute tram ride from the college.",
@@ -194,8 +194,8 @@ export const COURSES: CourseDetail[] = [
       {
         title: "Sport options",
         items: [
-          "English plus Golf — public and private Adelaide courses",
-          "English plus Tennis — coaching at Memorial Drive Tennis Club",
+          "English plus Golf, public and private Adelaide courses",
+          "English plus Tennis, coaching at Memorial Drive Tennis Club",
         ],
       },
     ],
@@ -260,7 +260,7 @@ export const COURSES: CourseDetail[] = [
     tagline: "English and Australian culture for learners aged 50+.",
     image: adelaide,
     intro:
-      "Morning English classes plus three organised cultural afternoons every week — designed for mature learners on a visitor visa.",
+      "Morning English classes plus three organised cultural afternoons every week, designed for mature learners on a visitor visa.",
     overview: [
       "The SACE Evergreen Programme is for people aged 50+ and consists of English language classes in the morning plus three organised afternoon cultural activities each week.",
       "Evergreen students are also welcome to join the Club SACE activity programme organised each week, which includes beaches, national parks, cultural institutes and seasonal events around Adelaide.",
@@ -377,7 +377,7 @@ export const COURSES: CourseDetail[] = [
     tag: "Teacher training",
     image: stayResidence,
     intro:
-      "SACE has run University of Cambridge CELTA courses since 1992 — now delivered 100% online, full-time or part-time.",
+      "SACE has run University of Cambridge CELTA courses since 1992, now delivered 100% online, full-time or part-time.",
     overview: [
       "The Cambridge CELTA is the best known TEFL / TESL / TESOL / ELT qualification of its kind in the world, and is often requested by employers nationally and internationally. Over 9,000 people a year take CELTA courses worldwide, with all successful participants receiving a certificate from Cambridge University.",
       "SACE's TESOL courses are delivered 100% online and are available as either a part-time 10 week or a full-time 4 week intensive course. The course combines self-guided study and real-time teaching practice coordinated by experienced CELTA trainers.",

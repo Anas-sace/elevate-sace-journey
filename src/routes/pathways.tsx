@@ -4,7 +4,7 @@ import { PageHero, PageShell } from "@/components/sace/PageShell";
 import { ButtonLink, Reveal, SectionHead } from "@/components/sace/ui";
 import graduation from "@/assets/life-graduation.jpg";
 
-const TITLE = "University & TAFE Pathways — SACE Adelaide";
+const TITLE = "University & TAFE Pathways | SACE Adelaide";
 const DESCRIPTION =
   "SACE pathway partnerships with Flinders University, CQUniversity, Deakin College, TAFE SA, Equals International and Quality College of Australia, plus leading Adelaide high schools.";
 
@@ -95,7 +95,7 @@ function PathwaysPage() {
       <PageHero
         eyebrow="Pathways"
         title="From English classes to an Australian qualification."
-        intro="SACE has built a dynamic network of pathway partnerships with leading institutions across South Australia and beyond — so your English course becomes the first step of a longer journey."
+        intro="SACE has built a dynamic network of pathway partnerships with leading institutions across South Australia and beyond, so your English course becomes the first step of a longer journey."
         image={graduation}
       />
 
