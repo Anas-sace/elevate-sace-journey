@@ -90,7 +90,7 @@ function resultFor(score: number) {
     return {
       level: "A2–B1 · Elementary to Pre-Intermediate",
       course: "General English Course",
-      slug: "general-english",
+      slug: "general-english-courses-adelaide",
       blurb:
         "You have solid foundations but complex structures are still slipping. A full-time General English course will build accuracy and everyday fluency quickly.",
     };
