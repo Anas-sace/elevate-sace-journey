@@ -28,7 +28,7 @@ export type CourseDetail = {
 
 export const COURSES: CourseDetail[] = [
   {
-    slug: "general-english",
+    slug: "general-english-courses-adelaide",
     name: "General English Course",
     shortName: "General English",
     tagline: "Speak, listen and live in English with confidence.",

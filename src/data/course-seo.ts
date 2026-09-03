@@ -39,111 +39,115 @@ export type CourseRich = {
 };
 
 export const COURSE_SEO: Record<string, CourseRich> = {
-  "general-english": {
-    slug: "general-english",
+  "general-english-courses-adelaide": {
+    slug: "general-english-courses-adelaide",
     metaTitle: "General English Course Adelaide | SACE",
     metaDescription:
-      "Study General English in Adelaide with SACE, Cambridge CELTA-qualified teachers, direct university pathways, and immersive learning from day one. Start today.",
+      "Improve your English for study, work or life in Australia. SACE General English courses in Adelaide start every Monday, 1 week onwards. Minimum age 13. Enrol today.",
     keywords: [
-      "General English course Adelaide",
-      "General English course Australia",
-      "ELICOS course Adelaide",
-      "English language course Adelaide",
-      "English immersion Adelaide",
-      "day English course",
-      "evening English course",
-      "international students Adelaide",
-      "NEAS accredited",
+      "general english course adelaide",
+      "english course adelaide",
+      "learn english adelaide",
+      "general english adelaide australia",
     ],
     heroBadges: ["NEAS Endorsed", "Est. 1987", "CELTA Training Centre"],
-    heroTitle: "General English Course in Adelaide, Australia",
+    heroTitle: "General English Courses in Adelaide, Australia",
     heroTagline: "Speak with Confidence. Connect with the World.",
     ctas: [
-      { label: "Access Brochure (2026)", href: "/SACE-Brochure.pdf", variant: "accent" },
+      { label: "Access Brochure", href: "/SACE-Brochure.pdf", variant: "accent" },
       { label: "Enrol Now", href: "/#apply", variant: "primary" },
       { label: "Test Your English Level", href: "/test-your-english", variant: "outline" },
     ],
-    overviewHeading: "Overview",
+    overviewHeading: "About the course",
     overview: [
-      "With over 40 years of experience and recognition as a certified CELTA training centre, the South Australian College of English (SACE) delivers General English courses that focus on practical, real-life communication.",
-      "Our courses help students build confidence in everyday conversations as well as more advanced academic and professional discussions.",
+      "The South Australian College of English (SACE), with over 40 years of experience and recognition as a certified CELTA training centre, delivers the General English programme, designed to improve your everyday communication skills for real-life situations.",
+      "Whether you are preparing for future study, looking for work, planning to travel, or simply want to feel more confident speaking English, this course gives you the tools to succeed.",
+      "General English is available as a full-time day course or an evening course; you can study around your schedule. Each class has a maximum of 18 students, ensuring every learner receives individual attention and meaningful feedback.",
     ],
     overviewFacts: [
-      { label: "Course length", value: "2 – 48 weeks" },
+      { label: "Course length", value: "1 – 48 weeks" },
       { label: "Levels", value: "Elementary to Advanced" },
       { label: "Intakes", value: "Every Monday" },
       { label: "Timetable", value: "Day and evening" },
-      { label: "Delivery", value: "On campus, Adelaide CBD" },
+      { label: "Minimum age", value: "13 years" },
       { label: "Accreditation", value: "NEAS endorsed · CRICOS 00094M" },
     ],
-    levelsHeading: "Course levels",
+    levelsHeading: "Choose your starting point",
     levelsIntro:
-      "Our General English programme supports learners from Elementary to Advanced English. English ability is broadly grouped into five recognised levels to guide learning progression, with class placement based on individual proficiency and availability.",
+      "Our General English programme supports learners from Elementary to Advanced. We place students based on individual proficiency confirmed by a free placement test on arrival.",
     levels: [
       {
         level: "Elementary",
         stage: "Foundation",
         description:
-          "Build a solid foundation in everyday English, greetings, basic grammar, and simple conversation for daily life.",
+          "Build the basics for everyday life. Practise greetings, simple grammar, and short conversations from day one.",
       },
       {
         level: "Pre-Intermediate",
         stage: "Building",
         description:
-          "Develop essential vocabulary and sentence structures to handle familiar everyday situations with growing confidence.",
+          "Grow your vocabulary and sentence skills to handle familiar situations with greater confidence.",
       },
       {
         level: "Intermediate",
         stage: "Developing",
         description:
-          "Communicate clearly on a wide range of topics. Understand the main points of complex texts on familiar subjects.",
+          "Communicate on a wider range of topics. Strengthen reading and listening skills so longer texts and conversations become easier to follow and understand.",
       },
       {
         level: "Upper-Intermediate",
         stage: "Advancing",
         description:
-          "Express yourself fluently and spontaneously. Handle most academic and professional situations with ease.",
+          "Handle academic and professional English with ease. Explain ideas clearly and participate in discussions with confidence.",
       },
       {
         level: "Advanced",
         stage: "Proficient",
         description:
-          "Understand virtually everything you read or hear. Express yourself precisely and fluently in all academic and professional contexts.",
+          "Refine your English to the highest level. Develop the precision and fluency needed to read complex material, write academic texts, and communicate naturally across professional and academic settings.",
       },
     ],
-    optionsHeading: "Course options",
+    optionsHeading: "Find the study format that fits your life",
     optionsIntro:
-      "SACE offers General English classes during the day and evening, giving students flexible study options to suit work, study, or personal schedules.",
+      "Every student has different goals, schedules, and learning speeds. Review our course options below to find the right fit.",
     options: [
       {
         title: "General English Intensive",
         hours: "25 hrs/week",
         detail:
-          "A full-time day programme designed for immersive language learning. Students attend core General English classes, with Special Studies offered on Mondays and Wednesdays, focusing on Academic Skills and Vocabulary in Context. This course supports strong academic development in a focused timeframe and suits students preparing for further study, including ETS.",
+          "Core General English Monday to Friday, plus Special Studies sessions on Mondays and Wednesdays focusing on Academic Skills and Vocabulary in Context. Best for students who want to progress as quickly as possible.",
       },
       {
         title: "General English Standard",
         hours: "20 hrs/week",
         detail:
-          "A balanced full-time day programme that focuses on improving speaking, listening, reading, and writing skills for everyday and academic use.",
+          "Core General English Monday to Friday, covering speaking, listening, reading, vocabulary, writing and grammar. Ideal for focused full-time classroom learning.",
+      },
+      {
+        title: "Intensive Plus",
+        hours: "25 hrs/week",
+        detail:
+          "Combines 20 hours of General Standard English with 5 additional hours of focused study per week. A strong choice for students who want extra support alongside their core classes.",
       },
       {
         title: "General English Part-Time",
         hours: "16 hrs/week",
         detail:
-          "Ideal for students balancing work or other commitments alongside study. Day or evening schedule available.",
+          "A flexible option for students who need to balance study with other commitments. Core classes in speaking, listening, reading and writing.",
       },
       {
-        title: "Accelerated English / Private Tuition",
+        title: "Private Tuition",
         hours: "Flexible",
-        detail: "Tailored one-to-one lessons available on demand to fast-track your progress.",
+        detail:
+          "One-to-one lessons designed around your specific needs and goals. Contact SACE to discuss your requirements and arrange a personalised programme.",
       },
     ],
-    weekHeading: "What does a typical week look like?",
+    weekHeading: "What your week looks like at SACE",
     weekIntro: [
       "Your week at SACE is structured to give you meaningful practice across all key language skills, every day.",
-      "The day General English course focuses on grammar, vocabulary, speaking, listening, reading, writing and pronunciation using real-life contexts. For students enrolled in the Intensive or Intensive Plus option, afternoon Special Studies sessions run twice a week, giving you extra time to explore topics in greater depth.",
-      "The evening General English course is designed for students who need flexibility during the day, whether you are working, on a working holiday visa, or managing other commitments. Classes cover the same core skill areas as the day programme: grammar, vocabulary, speaking, listening, reading and writing.",
+      "Day course (Intensive, 25 hrs): Monday to Friday, 9:00 am to 3:30 pm core classes, plus Special Studies on Monday and Wednesday focusing on Academic Skills and Vocabulary in Context.",
+      "Day course (Standard, 20 hrs): Monday to Friday, 9:00 am to 3:30 pm core classes.",
+      "Evening course (16 to 20 hrs): Monday to Friday, 5:00 pm to 9:15 pm core classes. Course duration: 1 to 48 weeks.",
     ],
     timetables: [
       {
@@ -183,7 +187,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         ],
       },
       {
-        title: "Evening course (20 hrs/wk)",
+        title: "Evening course (16/20 hrs/wk)",
         days: ["Mon", "Tue", "Wed", "Thu", "Fri"],
         rows: [
           {
@@ -209,94 +213,96 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         ],
       },
     ],
-    focusHeading: "What the course focuses on",
+    focusHeading: "What skills will you develop",
     focusIntro:
-      "Every class at SACE builds the four macro skills through engaging resources, podcasts, media, guest speakers, and excursions. The SACE “English Only” policy ensures real practice beyond the classroom.",
+      "True fluency requires balance. Our General English programme develops all four core language skills, blending practical speaking and listening with strong reading, writing, and grammar training.",
     pillars: [
-      { title: "Speaking & Pronunciation", detail: "Real-life situations, debates, presentations." },
-      { title: "Listening", detail: "Podcasts, media and authentic audio content." },
-      { title: "Reading & Vocabulary", detail: "Academic texts, comprehension and word-building." },
-      { title: "Writing & Grammar", detail: "Structured writing and grammar in context." },
+      {
+        title: "Speaking skills",
+        detail:
+          "Practise real conversations and build the confidence to express yourself clearly. Each class includes structured speaking activities, group discussions, and role plays that develop fluency and natural expression.",
+      },
+      {
+        title: "Listening skills",
+        detail:
+          "Develop your ability to understand a range of accents, speaking speeds, and contexts. Guided listening tasks help you follow conversations, pick up key information, and engage with authentic spoken English.",
+      },
+      {
+        title: "Reading and vocabulary",
+        detail:
+          "Expand your vocabulary and strengthen your reading skills through a variety of texts, from everyday materials to more complex passages. Learn to identify meaning in context and read with greater speed and accuracy.",
+      },
+      {
+        title: "Writing and grammar",
+        detail:
+          "Build accuracy and confidence in written English. Develop your understanding of grammar in context and practise a range of writing tasks, from informal messages to structured paragraphs and academic texts.",
+      },
     ],
     specs: [
-      { label: "Course duration", value: "2 – 48 weeks" },
+      { label: "Course duration", value: "1 – 48 weeks" },
       { label: "Students per class", value: "Max 18" },
-      { label: "Actual class size", value: "Avg 14" },
       { label: "Minimum age", value: "13+" },
+      { label: "Starts", value: "Every Monday" },
     ],
-    benefitsHeading: "What are the benefits of studying General English at SACE?",
+    benefitsHeading: "Why choose General English at SACE?",
     benefits: [
       {
-        title: "Personalised learning and dedicated feedback",
+        title: "Easy pathways to further study",
         detail:
-          "Small class sizes mean your teachers know your goals and give you tailored guidance throughout your course.",
+          "Move straight from our English classes into degree programmes at major local universities and colleges, including the University of Adelaide, Flinders University, and TAFE SA.",
       },
       {
-        title: "Progressive assessment and level mastery",
+        title: "Practical English for life in Adelaide",
         detail:
-          "Regular structured progress tests every four weeks confirm when you are ready to advance, and keep you on track.",
+          "Learn real, everyday language that helps you get around, make friends, and feel at home in Australia from your very first day.",
       },
       {
-        title: "Modern campus facilities and independent study spaces",
+        title: "Clear, step-by-step levels",
         detail:
-          "Full access to SACE's Adelaide CBD campus facilities, including quiet study areas for self-directed learning.",
+          "Progress smoothly through our five-level system, built on decades of trusted teaching experience since 1987. Each level builds on the last.",
       },
       {
-        title: "Academic and career pathway guidance",
+        title: "Friendly, global classrooms",
         detail:
-          "Professional advice on IELTS and PTE preparation, university pathways via the ETS programme, and direct-entry institutional partnerships.",
-      },
-      {
-        title: "Recognition of achievement",
-        detail:
-          "Official certificate ceremonies and social events mark your milestones and build community among SACE's global student body.",
-      },
-      {
-        title: "Accommodation and student welfare support",
-        detail:
-          "Carefully selected homestays and modern student residences to choose from, with full support from the SACE welfare team for the duration of your stay.",
+          "Meet and study with students from around the world, practising English together in a supportive, welcoming environment, with a maximum of 18 students per class.",
       },
     ],
     pathwayNote: [
       "Unsure about your university pathway? Our education advisors are here to support you.",
-      "Successful completion of our General English course can provide a pathway into our English for Tertiary Studies (ETS) programme. Completing ETS allows eligible students to progress to Australian universities without needing an IELTS test, subject to entry requirements.",
+      "Successful completion of our General English programme can provide a pathway into our English for Tertiary Studies (ETS) programme. Completing ETS allows eligible students to progress to Australian universities without needing an IELTS test, subject to entry requirements.",
     ],
     faqs: [
       {
-        q: "How do I enrol in a General English course?",
-        a: "Complete the SACE enrolment form and either send it to your local SACE representative or submit it directly to our team in Adelaide. Once we receive it, we will send you a letter of offer and an invoice for payment of fees.",
+        q: "What level do I need to start General English?",
+        a: "No previous English is required for the Elementary level. Before your first class, you take a free placement test so you begin in the right level for your current ability.",
       },
       {
-        q: "What is the minimum age for General English students?",
-        a: "The minimum age for our General English courses is 13 years. Our Study Tours programme accepts students aged 13 and older.",
+        q: "How old do I need to be to study General English at SACE?",
+        a: "The minimum age for General English is 13 years.",
       },
       {
-        q: "Will I receive a certificate on completion?",
-        a: "Yes. All students receive a SACE Certificate at the end of their course, indicating their level of achievement. A progress report is also issued at the end of each four-week period.",
+        q: "How long do I need to study?",
+        a: "General English is available from 1 week. Most students study for 4 to 48 weeks depending on their goals and starting level.",
       },
       {
-        q: "Can I switch between day and evening classes?",
-        a: "Subject to availability, students may request a schedule change. Please speak to our student services team on campus; we will do our best to accommodate your needs.",
+        q: "Can I study in the evening?",
+        a: "Yes. The General English Evening Course runs Monday to Friday from 5:00 pm to 9:15 pm. It is ideal if you have commitments during the day.",
       },
       {
-        q: "What are Special Studies classes?",
-        a: "Special Studies are specialised afternoon classes available to students enrolled in 25-hour-per-week programmes (General English Intensive and ETS). They cover Academic Skills and Vocabulary in Context. Special Studies can also be purchased separately by students on 20-hour programmes.",
+        q: "Will I get a certificate?",
+        a: "Yes. Students who complete their General English programme receive a SACE certificate showing their level of achievement.",
       },
       {
-        q: "Can I transfer from General English to Exam Preparation?",
-        a: "Yes. Once you achieve Intermediate (B1/B2) proficiency, you can consult our academic team to move into IELTS Preparation or Cambridge examination courses (B2 First / C1 Advanced). SACE monitors student progress every four weeks to identify the right time for this transition.",
+        q: "Can General English lead to university study in Australia?",
+        a: "Successful completion of our General English programme can provide a pathway into our English for Tertiary Studies (ETS) programme. Completing ETS allows eligible students to progress to Australian universities without needing an IELTS test, subject to entry requirements.",
       },
       {
-        q: "What accommodation options does SACE provide?",
-        a: "Students can choose a SACE homestay for authentic cultural immersion with a carefully selected local family, or opt for independent living in a central student hostel located within walking distance of our Adelaide campus.",
+        q: "How many students are in each class?",
+        a: "Each class will have a maximum of 18 students.",
       },
       {
-        q: "Am I permitted to work while studying in South Australia?",
-        a: "Under current Australian student visa regulations, eligible students are generally permitted to work up to 48 hours per fortnight. Work entitlements depend on your visa type and individual circumstances. We recommend checking current conditions with the Australian Government's official immigration website.",
-        link: {
-          label: "Work rights for student visa holders, homeaffairs.gov.au",
-          href: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500/temporary-relaxation-of-working-hours-for-student-visa-holders",
-        },
+        q: "When do new classes start?",
+        a: "General English has a new intake every Monday.",
       },
     ],
   },
