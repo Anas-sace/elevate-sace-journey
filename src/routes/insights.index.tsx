@@ -23,7 +23,8 @@ export const Route = createFileRoute("/insights/")({
 });
 
 function InsightsPage() {
-  const [featured, ...rest] = INSIGHTS;
+  const featured = INSIGHTS[0]!;
+  const rest = INSIGHTS.slice(1);
 
   return (
     <PageShell>
