@@ -21,6 +21,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ApiPublicSeedSuperadminRouteImport } from './routes/api/public/seed-superadmin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -82,6 +83,11 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
   id: '/api/public/seed-superadmin',
   path: '/api/public/seed-superadmin',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/test-your-english': typeof TestYourEnglishRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses/': typeof CoursesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/test-your-english': typeof TestYourEnglishRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses': typeof CoursesIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/test-your-english': typeof TestYourEnglishRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses/': typeof CoursesIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
@@ -144,6 +153,7 @@ export interface FileRouteTypes {
     | '/test-your-english'
     | '/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses/'
     | '/insights/'
     | '/api/public/seed-superadmin'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/test-your-english'
     | '/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses'
     | '/insights'
     | '/api/public/seed-superadmin'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/test-your-english'
     | '/_authenticated/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses/'
     | '/insights/'
     | '/api/public/seed-superadmin'
@@ -188,6 +200,7 @@ export interface RootRouteChildren {
   StudyToursRoute: typeof StudyToursRoute
   TestYourEnglishRoute: typeof TestYourEnglishRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
@@ -279,6 +292,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/seed-superadmin': {
       id: '/api/public/seed-superadmin'
       path: '/api/public/seed-superadmin'
@@ -310,6 +330,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudyToursRoute: StudyToursRoute,
   TestYourEnglishRoute: TestYourEnglishRoute,
   CoursesSlugRoute: CoursesSlugRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
