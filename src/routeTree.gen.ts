@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PathwaysRouteImport } from './routes/pathways'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StudyToursRouteImport } from './routes/study-tours'
@@ -21,6 +20,8 @@ import { Route as TestYourEnglishRouteImport } from './routes/test-your-english'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ApiPublicSeedSuperadminRouteImport } from './routes/api/public/seed-superadmin'
 
 const IndexRoute = IndexRouteImport.update({
@@ -40,11 +41,6 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PathwaysRoute = PathwaysRouteImport.update({
@@ -82,6 +78,16 @@ const CoursesSlugRoute = CoursesSlugRouteImport.update({
   path: '/courses/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicSeedSuperadminRoute = ApiPublicSeedSuperadminRouteImport.update({
   id: '/api/public/seed-superadmin',
   path: '/api/public/seed-superadmin',
@@ -92,28 +98,30 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
   '/test-your-english': typeof TestYourEnglishRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses/': typeof CoursesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
   '/test-your-english': typeof TestYourEnglishRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses': typeof CoursesIndexRoute
+  '/insights': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRoutesById {
@@ -122,14 +130,15 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/insights': typeof InsightsRoute
   '/pathways': typeof PathwaysRoute
   '/services': typeof ServicesRoute
   '/study-tours': typeof StudyToursRoute
   '/test-your-english': typeof TestYourEnglishRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/courses/': typeof CoursesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/api/public/seed-superadmin': typeof ApiPublicSeedSuperadminRoute
 }
 export interface FileRouteTypes {
@@ -138,28 +147,30 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
     | '/test-your-english'
     | '/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses/'
+    | '/insights/'
     | '/api/public/seed-superadmin'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
     | '/test-your-english'
     | '/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses'
+    | '/insights'
     | '/api/public/seed-superadmin'
   id:
     | '__root__'
@@ -167,14 +178,15 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/about'
     | '/contact'
-    | '/insights'
     | '/pathways'
     | '/services'
     | '/study-tours'
     | '/test-your-english'
     | '/_authenticated/admin'
     | '/courses/$slug'
+    | '/insights/$slug'
     | '/courses/'
+    | '/insights/'
     | '/api/public/seed-superadmin'
   fileRoutesById: FileRoutesById
 }
@@ -183,13 +195,14 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  InsightsRoute: typeof InsightsRoute
   PathwaysRoute: typeof PathwaysRoute
   ServicesRoute: typeof ServicesRoute
   StudyToursRoute: typeof StudyToursRoute
   TestYourEnglishRoute: typeof TestYourEnglishRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
   ApiPublicSeedSuperadminRoute: typeof ApiPublicSeedSuperadminRoute
 }
 
@@ -221,13 +234,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pathways': {
@@ -279,6 +285,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/seed-superadmin': {
       id: '/api/public/seed-superadmin'
       path: '/api/public/seed-superadmin'
@@ -305,13 +325,14 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  InsightsRoute: InsightsRoute,
   PathwaysRoute: PathwaysRoute,
   ServicesRoute: ServicesRoute,
   StudyToursRoute: StudyToursRoute,
   TestYourEnglishRoute: TestYourEnglishRoute,
   CoursesSlugRoute: CoursesSlugRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
   ApiPublicSeedSuperadminRoute: ApiPublicSeedSuperadminRoute,
 }
 export const routeTree = rootRouteImport
