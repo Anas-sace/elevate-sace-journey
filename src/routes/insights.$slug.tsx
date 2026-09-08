@@ -147,8 +147,8 @@ function InsightPost() {
         "@type": "FAQPage",
         mainEntity: post.faqs.map((f) => ({
           "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          name: clean(f.q),
+          acceptedAnswer: { "@type": "Answer", text: clean(f.a).replace(/\*\*/g, "") },
         })),
       }
     : null;
@@ -196,13 +196,13 @@ function InsightPost() {
                 {post.faqs.map((f) => (
                   <details key={f.q} name="post-faq" className="card-premium group px-6 py-1 open:shadow-lift">
                     <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-base font-bold text-foreground marker:content-none">
-                      {f.q}
+                      {clean(f.q)}
                       <Plus
                         aria-hidden
                         className="size-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-45"
                       />
                     </summary>
-                    <p className="pb-5 pr-10 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                    <p className="pb-5 pr-10 text-sm leading-relaxed text-muted-foreground">{clean(f.a).replace(/\*\*/g, "")}</p>
                   </details>
                 ))}
               </div>
