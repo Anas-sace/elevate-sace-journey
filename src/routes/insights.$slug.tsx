@@ -48,9 +48,72 @@ function Inline({ text }: { text: string }) {
   );
 }
 
+const clean = (s: string) => s.replace(/^\s*#{1,6}\s*/, "").trim();
+
+const isTableRow = (b: Block) =>
+  b.t === "p" && typeof b.v === "string" && /^\s*\|.*\|\s*$/.test(b.v);
+const isTableDivider = (v: string) => /^\s*\|[\s|:-]+\|\s*$/.test(v);
+const cells = (v: string) =>
+  v.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+
+type Node = { kind: "block"; b: Block } | { kind: "table"; rows: string[][] };
+
+function toNodes(blocks: Block[]): Node[] {
+  const out: Node[] = [];
+  for (let i = 0; i < blocks.length; i++) {
+    const b = blocks[i]!;
+    if (isTableRow(b)) {
+      const rows: string[][] = [];
+      while (i < blocks.length && isTableRow(blocks[i]!)) {
+        const v = (blocks[i] as { v: string }).v;
+        if (!isTableDivider(v)) rows.push(cells(v));
+        i++;
+      }
+      i--;
+      if (rows.length) out.push({ kind: "table", rows });
+      continue;
+    }
+    out.push({ kind: "block", b });
+  }
+  return out;
+}
+
+function TableView({ rows }: { rows: string[][] }) {
+  const [head, ...body] = rows;
+  return (
+    <div className="mt-8 overflow-x-auto rounded-2xl border border-border">
+      <table className="w-full border-collapse text-left text-sm">
+        {head ? (
+          <thead className="bg-surface">
+            <tr>
+              {head.map((c, i) => (
+                <th key={i} className="border-b border-border px-4 py-3 font-display font-bold text-foreground">
+                  <Inline text={clean(c)} />
+                </th>
+              ))}
+            </tr>
+          </thead>
+        ) : null}
+        <tbody>
+          {body.map((r, ri) => (
+            <tr key={ri} className="even:bg-surface/60">
+              {r.map((c, ci) => (
+                <td key={ci} className="border-b border-border px-4 py-3 align-top text-muted-foreground">
+                  <Inline text={c} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function BlockView({ b }: { b: Block }) {
-  if (b.t === "h2") return <h2 className="display-3 mt-12 text-foreground">{b.v}</h2>;
-  if (b.t === "h3") return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{b.v}</h3>;
+  if (b.t === "h2") return <h2 className="display-3 mt-12 text-foreground">{clean(b.v)}</h2>;
+  if (b.t === "h3")
+    return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{clean(b.v)}</h3>;
   if (b.t === "img")
     return (
       <img src={b.v} alt="" aria-hidden loading="lazy" className="mt-8 w-full rounded-3xl object-cover" />
@@ -60,11 +123,13 @@ function BlockView({ b }: { b: Block }) {
       <ul className="mt-5 space-y-2.5 pl-5">
         {b.items.map((it, i) => (
           <li key={i} className="list-disc text-base leading-relaxed text-muted-foreground">
-            <Inline text={it} />
+            <Inline text={clean(it)} />
           </li>
         ))}
       </ul>
     );
+  if (/^\s*#{1,6}\s/.test(b.v))
+    return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{clean(b.v).replace(/\*\*/g, "")}</h3>;
   return (
     <p className="mt-5 text-base leading-relaxed text-muted-foreground">
       <Inline text={b.v} />

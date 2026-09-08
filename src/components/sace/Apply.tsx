@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowLeft, CheckCircle2, Globe } from "lucide-react";
 import graduation from "@/assets/life-graduation.jpg";
 import logo from "@/assets/sace-logo.svg";
-import { COURSE_OPTIONS, NATIONALITIES } from "@/lib/courses";
+
 import { Reveal } from "./ui";
 
 const label = "mb-2 block text-sm font-semibold text-foreground";
