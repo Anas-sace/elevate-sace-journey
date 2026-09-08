@@ -69,53 +69,16 @@ export function Apply() {
                 </p>
 
                 <div className="mt-8 grid gap-x-5 gap-y-5 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="first" className={label}>First name *</label>
-                    <input id="first" name="first" required autoComplete="given-name" placeholder="Maria" className={field} />
-                  </div>
-                  <div>
-                    <label htmlFor="last" className={label}>Last name *</label>
-                    <input id="last" name="last" required autoComplete="family-name" placeholder="Santos" className={field} />
-                  </div>
-
-                  <div>
-                    <label htmlFor="dob" className={label}>Date of birth *</label>
-                    <input id="dob" name="dob" type="date" required className={field} />
-                  </div>
-                  <div>
-                    <label htmlFor="nationality" className={label}>Nationality *</label>
-                    <select id="nationality" name="nationality" required defaultValue="" className={field}>
-                      <option value="" disabled>Select...</option>
-                      {NATIONALITIES.map((n) => (
-                        <option key={n} value={n}>{n}</option>
-                      ))}
-                    </select>
-                  </div>
-
                   <div className="sm:col-span-2">
-                    <label htmlFor="start" className={label}>Preferred start date</label>
-                    <input id="start" name="start" type="date" aria-describedby="start-help" className={field} />
-                    <p id="start-help" className="mt-2 text-xs text-muted-foreground">
-                      We&apos;ll show you upcoming courses starting on or after this date.
-                    </p>
+                    <label htmlFor="name" className={label}>Full name *</label>
+                    <input id="name" name="name" required autoComplete="name" placeholder="Maria Santos" className={field} />
                   </div>
-
-                  <div className="sm:col-span-2">
-                    <label htmlFor="course" className={label}>Select course *</label>
-                    <select id="course" name="course" required defaultValue="" className={field}>
-                      <option value="" disabled>Select course</option>
-                      {COURSE_OPTIONS.map((c) => (
-                        <option key={c} value={c}>{c}</option>
-                      ))}
-                    </select>
-                  </div>
-
                   <div>
                     <label htmlFor="email" className={label}>Email *</label>
                     <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={field} />
                   </div>
                   <div>
-                    <label htmlFor="phone" className={label}>Phone *</label>
+                    <label htmlFor="phone" className={label}>Contact number *</label>
                     <input id="phone" name="phone" type="tel" required autoComplete="tel" placeholder="+61 4XX XXX XXX" className={field} />
                   </div>
                 </div>

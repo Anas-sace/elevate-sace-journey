@@ -165,10 +165,7 @@ export function EnglishTest() {
         <Reveal>
           <div className="rounded-4xl border-8 border-[#7a4a22] bg-[#0f3d2e] p-6 shadow-lift md:p-12">
             <div className="mx-auto max-w-3xl text-white">
-              <p className="font-display text-xs font-bold uppercase tracking-[0.24em] text-[#ffd98a]">
-                Free placement quiz
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">
+              <h2 className="font-display text-3xl font-extrabold md:text-4xl">
                 Let&apos;s test your English
               </h2>
 

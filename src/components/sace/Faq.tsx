@@ -72,7 +72,7 @@ export function Faq() {
         <div className="mt-8 space-y-3">
           {results.map((f, i) => (
             <Reveal key={f.q} delay={i * 0.04}>
-              <details className="card-premium group px-6 py-1 open:shadow-lift">
+              <details name="sace-faq" className="card-premium group px-6 py-1 open:shadow-lift">
                 <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-base font-bold text-foreground marker:content-none">
                   {f.q}
                   <Plus

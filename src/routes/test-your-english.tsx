@@ -138,7 +138,7 @@ function TestPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Free placement quiz"
+        eyebrow="English level test"
         title="Test your English level"
         intro="Ten questions, about five minutes. You'll see the correct answer and why it's correct after every question, then get an estimated CEFR level and a recommended SACE course."
         breadcrumb="Test your English"
