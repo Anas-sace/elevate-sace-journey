@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { PageShell } from "@/components/sace/PageShell";
 import { Eyebrow, Reveal } from "@/components/sace/ui";
 import { INSIGHTS, getPost, type Block } from "@/data/insights";
@@ -48,9 +48,72 @@ function Inline({ text }: { text: string }) {
   );
 }
 
+const clean = (s: string) => s.replace(/^\s*#{1,6}\s*/, "").trim();
+
+const isTableRow = (b: Block) =>
+  b.t === "p" && typeof b.v === "string" && /^\s*\|.*\|\s*$/.test(b.v);
+const isTableDivider = (v: string) => /^\s*\|[\s|:-]+\|\s*$/.test(v);
+const cells = (v: string) =>
+  v.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+
+type Node = { kind: "block"; b: Block } | { kind: "table"; rows: string[][] };
+
+function toNodes(blocks: Block[]): Node[] {
+  const out: Node[] = [];
+  for (let i = 0; i < blocks.length; i++) {
+    const b = blocks[i]!;
+    if (isTableRow(b)) {
+      const rows: string[][] = [];
+      while (i < blocks.length && isTableRow(blocks[i]!)) {
+        const v = (blocks[i] as { v: string }).v;
+        if (!isTableDivider(v)) rows.push(cells(v));
+        i++;
+      }
+      i--;
+      if (rows.length) out.push({ kind: "table", rows });
+      continue;
+    }
+    out.push({ kind: "block", b });
+  }
+  return out;
+}
+
+function TableView({ rows }: { rows: string[][] }) {
+  const [head, ...body] = rows;
+  return (
+    <div className="mt-8 overflow-x-auto rounded-2xl border border-border">
+      <table className="w-full border-collapse text-left text-sm">
+        {head ? (
+          <thead className="bg-surface">
+            <tr>
+              {head.map((c, i) => (
+                <th key={i} className="border-b border-border px-4 py-3 font-display font-bold text-foreground">
+                  <Inline text={clean(c)} />
+                </th>
+              ))}
+            </tr>
+          </thead>
+        ) : null}
+        <tbody>
+          {body.map((r, ri) => (
+            <tr key={ri} className="even:bg-surface/60">
+              {r.map((c, ci) => (
+                <td key={ci} className="border-b border-border px-4 py-3 align-top text-muted-foreground">
+                  <Inline text={c} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function BlockView({ b }: { b: Block }) {
-  if (b.t === "h2") return <h2 className="display-3 mt-12 text-foreground">{b.v}</h2>;
-  if (b.t === "h3") return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{b.v}</h3>;
+  if (b.t === "h2") return <h2 className="display-3 mt-12 text-foreground">{clean(b.v)}</h2>;
+  if (b.t === "h3")
+    return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{clean(b.v)}</h3>;
   if (b.t === "img")
     return (
       <img src={b.v} alt="" aria-hidden loading="lazy" className="mt-8 w-full rounded-3xl object-cover" />
@@ -60,11 +123,13 @@ function BlockView({ b }: { b: Block }) {
       <ul className="mt-5 space-y-2.5 pl-5">
         {b.items.map((it, i) => (
           <li key={i} className="list-disc text-base leading-relaxed text-muted-foreground">
-            <Inline text={it} />
+            <Inline text={clean(it)} />
           </li>
         ))}
       </ul>
     );
+  if (/^\s*#{1,6}\s/.test(b.v))
+    return <h3 className="mt-8 font-display text-xl font-bold text-foreground">{clean(b.v).replace(/\*\*/g, "")}</h3>;
   return (
     <p className="mt-5 text-base leading-relaxed text-muted-foreground">
       <Inline text={b.v} />
@@ -82,8 +147,8 @@ function InsightPost() {
         "@type": "FAQPage",
         mainEntity: post.faqs.map((f) => ({
           "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          name: clean(f.q),
+          acceptedAnswer: { "@type": "Answer", text: clean(f.a).replace(/\*\*/g, "") },
         })),
       }
     : null;
@@ -120,21 +185,27 @@ function InsightPost() {
       <article className="section">
         <div className="shell max-w-3xl">
           <img src={post.image} alt={post.title} className="w-full rounded-4xl object-cover" />
-          {post.blocks.map((b, i) => (
-            <BlockView key={i} b={b} />
-          ))}
+          {toNodes(post.blocks).map((n, i) =>
+            n.kind === "table" ? <TableView key={i} rows={n.rows} /> : <BlockView key={i} b={n.b} />,
+          )}
 
           {post.faqs.length ? (
             <div className="mt-16">
               <h2 className="display-3 text-foreground">Frequently asked questions</h2>
-              <dl className="mt-6 space-y-4">
+              <div className="mt-6 space-y-3">
                 {post.faqs.map((f) => (
-                  <div key={f.q} className="card-premium p-6">
-                    <dt className="font-display text-base font-bold text-foreground">{f.q}</dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</dd>
-                  </div>
+                  <details key={f.q} name="post-faq" className="card-premium group px-6 py-1 open:shadow-lift">
+                    <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-base font-bold text-foreground marker:content-none">
+                      {clean(f.q)}
+                      <Plus
+                        aria-hidden
+                        className="size-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-45"
+                      />
+                    </summary>
+                    <p className="pb-5 pr-10 text-sm leading-relaxed text-muted-foreground">{clean(f.a).replace(/\*\*/g, "")}</p>
+                  </details>
                 ))}
-              </dl>
+              </div>
             </div>
           ) : null}
 

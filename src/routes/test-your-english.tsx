@@ -80,11 +80,11 @@ const QUESTIONS: Question[] = [
 ];
 
 function levelFor(score: number) {
-  if (score <= 3) return { level: "A1–A2 · Elementary", course: "General English Course", blurb: "You have the basics. A full-time General English course will build your grammar and everyday speaking fast." };
+  if (score <= 3) return { level: "A1 to A2 · Elementary", course: "General English Course", blurb: "You have the basics. A full-time General English course will build your grammar and everyday speaking fast." };
   if (score <= 5) return { level: "B1 · Pre-Intermediate", course: "General English Course", blurb: "You can handle familiar topics. General English with an English Plus elective will lift your accuracy and confidence." };
-  if (score <= 7) return { level: "B1+–B2 · Intermediate", course: "IELTS Preparation", blurb: "Strong working English. Exam preparation will sharpen your skills for university or migration requirements." };
-  if (score <= 9) return { level: "B2+–C1 · Upper-Intermediate", course: "English for Tertiary Studies", blurb: "You're close to academic level. Tertiary Studies will prepare you for Australian university assessment." };
-  return { level: "C1–C2 · Advanced", course: "Cambridge CELTA Online", blurb: "Excellent English. You may be ready for teacher training or a direct university pathway, talk to our team." };
+  if (score <= 7) return { level: "B1+-B2 · Intermediate", course: "IELTS Preparation", blurb: "Strong working English. Exam preparation will sharpen your skills for university or migration requirements." };
+  if (score <= 9) return { level: "B2+-C1 · Upper-Intermediate", course: "English for Tertiary Studies", blurb: "You're close to academic level. Tertiary Studies will prepare you for Australian university assessment." };
+  return { level: "C1 to C2 · Advanced", course: "Cambridge CELTA Online", blurb: "Excellent English. You may be ready for teacher training or a direct university pathway, talk to our team." };
 }
 
 export const Route = createFileRoute("/test-your-english")({
@@ -138,7 +138,7 @@ function TestPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Free placement quiz"
+        eyebrow="English level test"
         title="Test your English level"
         intro="Ten questions, about five minutes. You'll see the correct answer and why it's correct after every question, then get an estimated CEFR level and a recommended SACE course."
         breadcrumb="Test your English"

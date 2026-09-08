@@ -42,12 +42,12 @@ export const COURSES: CourseDetail[] = [
       "The General English Evening Course is suitable for students who have limited time during the day to focus on their English studies.",
     ],
     facts: [
-      { label: "Duration", value: "1 – 48 weeks" },
+      { label: "Duration", value: "1 to 48 weeks" },
       { label: "Levels", value: "Elementary to Advanced" },
       { label: "Timetable", value: "Day / Evening" },
       { label: "Skills", value: "Communication skills" },
     ],
-    quickDuration: "1 – 48 weeks",
+    quickDuration: "1 to 48 weeks",
     quickLevel: "Elementary → Advanced",
     quickStarts: "Every Monday",
     curriculum: [
@@ -70,8 +70,8 @@ export const COURSES: CourseDetail[] = [
       },
     ],
     timetables: [
-      { title: "Timetable (Day)", lines: ["16 – 25 hours per week", "Monday to Friday, 9:00am – 3:15pm"] },
-      { title: "Timetable (Evening)", lines: ["16 – 20 hours per week", "Monday to Friday, 5:00pm – 9:15pm"] },
+      { title: "Timetable (Day)", lines: ["16 to 25 hours per week", "Monday to Friday, 9:00am to 3:15pm"] },
+      { title: "Timetable (Evening)", lines: ["16 to 20 hours per week", "Monday to Friday, 5:00pm to 9:15pm"] },
     ],
     options: [
       { title: "General English Intensive", detail: "25 hours per week" },
@@ -96,12 +96,12 @@ export const COURSES: CourseDetail[] = [
       "Academic English Preparation is also available online, allowing students to begin working towards the entry requirements for Australian TAFE, VET and universities from home.",
     ],
     facts: [
-      { label: "Duration", value: "12 – 48 weeks" },
-      { label: "Levels", value: "ETS 1–4 (minimum IELTS 5.0 or equivalent)" },
+      { label: "Duration", value: "12 to 48 weeks" },
+      { label: "Levels", value: "ETS 1 to 4 (minimum IELTS 5.0 or equivalent)" },
       { label: "Timetable", value: "Full-time 25h/week (day only)" },
       { label: "Options", value: "Face-to-face / Online" },
     ],
-    quickDuration: "12 – 48 weeks",
+    quickDuration: "12 to 48 weeks",
     quickLevel: "Intermediate +",
     quickStarts: "Regular intakes",
     curriculum: [
@@ -138,7 +138,7 @@ export const COURSES: CourseDetail[] = [
     timetables: [
       {
         title: "Timetable (Full-time)",
-        lines: ["25 hours per week", "Mon and Wed: 9:00am – 3:30pm", "Tue, Thu, Fri: 9:00am – 1:30pm"],
+        lines: ["25 hours per week", "Mon and Wed: 9:00am to 3:30pm", "Tue, Thu, Fri: 9:00am to 1:30pm"],
       },
     ],
     extras: [
@@ -213,19 +213,19 @@ export const COURSES: CourseDetail[] = [
     tagline: "Bridge confidently into an Australian secondary school.",
     image: heroStudents,
     intro:
-      "An international high school bridging programme for students aged 12–17 preparing to enter a leading Adelaide secondary school.",
+      "An international high school bridging programme for students aged 12 to 17 preparing to enter a leading Adelaide secondary school.",
     overview: [
       "The SACE High School Programme prepares young international students for entry into Australian secondary schools. Students build the academic English, study skills and classroom confidence that a mainstream Australian school expects.",
-      "Alongside language work, students are introduced to the Australian school system, assessment styles and classroom culture, so the transition into Year 7–12 feels familiar rather than daunting.",
+      "Alongside language work, students are introduced to the Australian school system, assessment styles and classroom culture, so the transition into Year 7 to 12 feels familiar rather than daunting.",
       "SACE works closely with many of Adelaide's leading independent high schools, and our counsellors assist families with school selection, application and enrolment.",
     ],
     facts: [
-      { label: "Duration", value: "10 – 40 weeks" },
-      { label: "Ages", value: "12 – 17 years" },
+      { label: "Duration", value: "10 to 40 weeks" },
+      { label: "Ages", value: "12 to 17 years" },
       { label: "Levels", value: "Elementary +" },
       { label: "Timetable", value: "Full-time, term aligned" },
     ],
-    quickDuration: "10 – 40 weeks",
+    quickDuration: "10 to 40 weeks",
     quickLevel: "Elementary +",
     quickStarts: "Term-aligned intakes",
     curriculum: [
@@ -303,12 +303,12 @@ export const COURSES: CourseDetail[] = [
       "Both day and evening IELTS Preparation classes are available for students who want to focus on Speaking, Reading, Writing and Listening.",
     ],
     facts: [
-      { label: "Duration", value: "12 – 24 weeks" },
+      { label: "Duration", value: "12 to 24 weeks" },
       { label: "Levels", value: "Upper Intermediate / IELTS 5" },
       { label: "Timetable", value: "20 hours per week" },
       { label: "Options", value: "Face-to-face, day or evening" },
     ],
-    quickDuration: "12 – 24 weeks",
+    quickDuration: "12 to 24 weeks",
     quickLevel: "Upper Intermediate +",
     quickStarts: "Monthly intakes",
     curriculum: [
@@ -325,8 +325,8 @@ export const COURSES: CourseDetail[] = [
       },
     ],
     timetables: [
-      { title: "Timetable (Day)", lines: ["20 hours per week", "Monday to Friday, 9:00am – 1:30pm"] },
-      { title: "Timetable (Evening)", lines: ["20 hours per week", "Monday to Friday, 5:00pm – 9:15pm"] },
+      { title: "Timetable (Day)", lines: ["20 hours per week", "Monday to Friday, 9:00am to 1:30pm"] },
+      { title: "Timetable (Evening)", lines: ["20 hours per week", "Monday to Friday, 5:00pm to 9:15pm"] },
     ],
   },
   {
@@ -343,12 +343,12 @@ export const COURSES: CourseDetail[] = [
       "Students are tested on their first day. Students below Upper Intermediate level are placed in a General English class until their English level is sufficient.",
     ],
     facts: [
-      { label: "Duration", value: "4 – 24 weeks" },
+      { label: "Duration", value: "4 to 24 weeks" },
       { label: "Levels", value: "Upper Intermediate or IELTS 5.0" },
       { label: "Timetable", value: "Day / Evening" },
       { label: "Skills", value: "Speaking, Listening, Reading, Writing" },
     ],
-    quickDuration: "4 – 24 weeks",
+    quickDuration: "4 to 24 weeks",
     quickLevel: "Upper Intermediate +",
     quickStarts: "Monthly intakes",
     curriculum: [
@@ -365,7 +365,7 @@ export const COURSES: CourseDetail[] = [
     timetables: [
       {
         title: "Timetable",
-        lines: ["Monday to Friday", "Day: 9:00am – 1:30pm", "Evening: 5:00pm – 9:15pm"],
+        lines: ["Monday to Friday", "Day: 9:00am to 1:30pm", "Evening: 5:00pm to 9:15pm"],
       },
     ],
   },
@@ -389,7 +389,7 @@ export const COURSES: CourseDetail[] = [
       { label: "Application cutoff", value: "4 Sept 2026" },
       { label: "Delivery", value: "Online only" },
     ],
-    quickDuration: "4 – 10 weeks",
+    quickDuration: "4 to 10 weeks",
     quickLevel: "Teacher training",
     quickStarts: "Quarterly",
     curriculum: [

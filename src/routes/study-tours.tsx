@@ -60,8 +60,8 @@ const DETAILS = [
 ];
 
 const PROGRAMME = [
-  "English course (16 – 25 hours per week)",
-  "Afternoon tours (3 – 5 days per week)",
+  "English course (16, 25 hours per week)",
+  "Afternoon tours (3, 5 days per week)",
   "Homestay accommodation (3 meals per day)",
   "Airport transfer from Adelaide Airport",
   "Study tours built to meet the specific requirements of each group",

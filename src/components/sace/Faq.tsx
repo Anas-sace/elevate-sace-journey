@@ -13,7 +13,7 @@ const FAQS: { q: string; a: string; cat: Exclude<Category, "All"> }[] = [
   { cat: "Courses", q: "What English level do I need to start?", a: "Any. General English starts from true beginner. You take a free placement test before your first class so you begin in the right level." },
   { cat: "Courses", q: "When can I start?", a: "General English has a new intake every Monday. Exam preparation and pathway programmes run to fixed intake dates each term." },
   { cat: "Living", q: "Where will I live?", a: "Choose homestay, a student residence, or vetted shared housing. Our accommodation team places you before you fly and checks in after two weeks." },
-  { cat: "Living", q: "Is Adelaide expensive?", a: "It is the most affordable mainland capital in Australia. Most students budget A$400–550 per week including accommodation." },
+  { cat: "Living", q: "Is Adelaide expensive?", a: "It is the most affordable mainland capital in Australia. Most students budget A$400 to 550 per week including accommodation." },
 ];
 
 export function Faq() {
@@ -72,7 +72,7 @@ export function Faq() {
         <div className="mt-8 space-y-3">
           {results.map((f, i) => (
             <Reveal key={f.q} delay={i * 0.04}>
-              <details className="card-premium group px-6 py-1 open:shadow-lift">
+              <details name="sace-faq" className="card-premium group px-6 py-1 open:shadow-lift">
                 <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-base font-bold text-foreground marker:content-none">
                   {f.q}
                   <Plus

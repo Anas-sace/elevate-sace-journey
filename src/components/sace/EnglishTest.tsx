@@ -88,7 +88,7 @@ const QUESTIONS: Question[] = [
 function resultFor(score: number) {
   if (score <= 3)
     return {
-      level: "A2–B1 · Elementary to Pre-Intermediate",
+      level: "A2 to B1 · Elementary to Pre-Intermediate",
       course: "General English Course",
       slug: "general-english-courses-adelaide",
       blurb:
@@ -112,14 +112,14 @@ function resultFor(score: number) {
     };
   if (score <= 9)
     return {
-      level: "B2+–C1 · Advanced",
+      level: "B2+-C1 · Advanced",
       course: "English for Tertiary Studies",
       slug: "english-for-tertiary-studies",
       blurb:
         "You're close to academic level. Tertiary Studies prepares you for Australian university reading, writing and assessment.",
     };
   return {
-    level: "C1–C2 · Proficient",
+    level: "C1 to C2 · Proficient",
     course: "Cambridge CELTA Online",
     slug: "cambridge-celta-online",
     blurb:
@@ -165,10 +165,7 @@ export function EnglishTest() {
         <Reveal>
           <div className="rounded-4xl border-8 border-[#7a4a22] bg-[#0f3d2e] p-6 shadow-lift md:p-12">
             <div className="mx-auto max-w-3xl text-white">
-              <p className="font-display text-xs font-bold uppercase tracking-[0.24em] text-[#ffd98a]">
-                Free placement quiz
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold md:text-4xl">
+              <h2 className="font-display text-3xl font-extrabold md:text-4xl">
                 Let&apos;s test your English
               </h2>
 

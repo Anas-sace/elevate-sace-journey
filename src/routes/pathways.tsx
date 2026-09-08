@@ -84,7 +84,7 @@ const SCHOOLS = [
   "St Aloysius (Female only)",
   "Loreto (Female only)",
   "St Peters Girls (Female only)",
-  "Our Lady of the Sacred Heart – OLSH (Female only)",
+  "Our Lady of the Sacred Heart, OLSH (Female only)",
   "Blackfriars Priory School (Male only)",
   "Prince Alfred College (Male only)",
 ];
