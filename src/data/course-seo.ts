@@ -65,7 +65,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
       "General English is available as a full-time day course or an evening course; you can study around your schedule. Each class has a maximum of 18 students, ensuring every learner receives individual attention and meaningful feedback.",
     ],
     overviewFacts: [
-      { label: "Course length", value: "1 – 48 weeks" },
+      { label: "Course length", value: "1, 48 weeks" },
       { label: "Levels", value: "Elementary to Advanced" },
       { label: "Intakes", value: "Every Monday" },
       { label: "Timetable", value: "Day and evening" },
@@ -155,7 +155,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         days: ["Mon", "Tue", "Wed", "Thu", "Fri"],
         rows: [
           {
-            time: "9:00 – 11:00",
+            time: "9:00, 11:00",
             cells: [
               "Intro to Unit · Writing",
               "Grammar · Listening & Speaking",
@@ -165,7 +165,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
             ],
           },
           {
-            time: "11:30 – 13:30",
+            time: "11:30, 13:30",
             cells: [
               "Reading · Speaking",
               "Pronunciation · Vocabulary",
@@ -175,7 +175,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
             ],
           },
           {
-            time: "14:00 – 15:30",
+            time: "14:00, 15:30",
             cells: [
               "Special Studies (25h/wk only)",
               "-",
@@ -191,7 +191,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
         days: ["Mon", "Tue", "Wed", "Thu", "Fri"],
         rows: [
           {
-            time: "17:00 – 19:00",
+            time: "17:00, 19:00",
             cells: [
               "Intro to theme",
               "Grammar in use",
@@ -201,7 +201,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
             ],
           },
           {
-            time: "19:15 – 21:15",
+            time: "19:15, 21:15",
             cells: [
               "Reading / Speaking",
               "Reading / Writing",
@@ -239,7 +239,7 @@ export const COURSE_SEO: Record<string, CourseRich> = {
       },
     ],
     specs: [
-      { label: "Course duration", value: "1 – 48 weeks" },
+      { label: "Course duration", value: "1, 48 weeks" },
       { label: "Students per class", value: "Max 18" },
       { label: "Minimum age", value: "13+" },
       { label: "Starts", value: "Every Monday" },

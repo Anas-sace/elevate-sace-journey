@@ -88,7 +88,7 @@ const QUESTIONS: Question[] = [
 function resultFor(score: number) {
   if (score <= 3)
     return {
-      level: "A2–B1 · Elementary to Pre-Intermediate",
+      level: "A2 to B1 · Elementary to Pre-Intermediate",
       course: "General English Course",
       slug: "general-english-courses-adelaide",
       blurb:
@@ -112,14 +112,14 @@ function resultFor(score: number) {
     };
   if (score <= 9)
     return {
-      level: "B2+–C1 · Advanced",
+      level: "B2+-C1 · Advanced",
       course: "English for Tertiary Studies",
       slug: "english-for-tertiary-studies",
       blurb:
         "You're close to academic level. Tertiary Studies prepares you for Australian university reading, writing and assessment.",
     };
   return {
-    level: "C1–C2 · Proficient",
+    level: "C1 to C2 · Proficient",
     course: "Cambridge CELTA Online",
     slug: "cambridge-celta-online",
     blurb:

@@ -13,7 +13,7 @@ const FAQS: { q: string; a: string; cat: Exclude<Category, "All"> }[] = [
   { cat: "Courses", q: "What English level do I need to start?", a: "Any. General English starts from true beginner. You take a free placement test before your first class so you begin in the right level." },
   { cat: "Courses", q: "When can I start?", a: "General English has a new intake every Monday. Exam preparation and pathway programmes run to fixed intake dates each term." },
   { cat: "Living", q: "Where will I live?", a: "Choose homestay, a student residence, or vetted shared housing. Our accommodation team places you before you fly and checks in after two weeks." },
-  { cat: "Living", q: "Is Adelaide expensive?", a: "It is the most affordable mainland capital in Australia. Most students budget A$400–550 per week including accommodation." },
+  { cat: "Living", q: "Is Adelaide expensive?", a: "It is the most affordable mainland capital in Australia. Most students budget A$400 to 550 per week including accommodation." },
 ];
 
 export function Faq() {

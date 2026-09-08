@@ -806,11 +806,11 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "| Postgraduate University Entry | 6.5–7.0 Overall |"
+        "v": "| Postgraduate University Entry | 6.5 to 7.0 Overall |"
       },
       {
         "t": "p",
-        "v": "| Go8 (Australia's Group of Eight Leading Research Universities) Programmes | 6.5–7.0 Overall (Competitive Programmes May Require Higher Scores) |"
+        "v": "| Go8 (Australia's Group of Eight Leading Research Universities) Programmes | 6.5 to 7.0 Overall (Competitive Programmes May Require Higher Scores) |"
       },
       {
         "t": "p",
@@ -846,7 +846,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "The Reading and Writing tasks in General Training focus on everyday workplace and social English—skills you will actually use once you migrate. Always confirm exactly which test and score your specific visa subclass requires with your migration agent before enrolling."
+        "v": "The Reading and Writing tasks in General Training focus on everyday workplace and social English to skills you will actually use once you migrate. Always confirm exactly which test and score your specific visa subclass requires with your migration agent before enrolling."
       },
       {
         "t": "p",
@@ -906,7 +906,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "3. IELTS Preparation for 12–24 weeks"
+        "v": "3. IELTS Preparation for 12 to 24 weeks"
       },
       {
         "t": "p",
@@ -962,11 +962,11 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "| Need IELTS 5.5–6.0 for a student visa and currently at Pre-Intermediate level | General English → IELTS Preparation |"
+        "v": "| Need IELTS 5.5 to 6.0 for a student visa and currently at Pre-Intermediate level | General English → IELTS Preparation |"
       },
       {
         "t": "p",
-        "v": "| Need IELTS 6.0–7.0 for university entry and currently at Upper Intermediate level | IELTS Preparation |"
+        "v": "| Need IELTS 6.0 to 7.0 for university entry and currently at Upper Intermediate level | IELTS Preparation |"
       },
       {
         "t": "p",
@@ -1075,15 +1075,15 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "| Weekly Living Cost | AUD 350–700 | AUD 600–1,000+ | AUD 500–900 |"
+        "v": "| Weekly Living Cost | AUD 350 to 700 | AUD 600 to 1,000+ | AUD 500 to 900 |"
       },
       {
         "t": "p",
-        "v": "| Weekly Rent (Approx.) | AUD 300–500 | AUD 500–1,000 | AUD 400–700 |"
+        "v": "| Weekly Rent (Approx.) | AUD 300 to 500 | AUD 500 to 1,000 | AUD 400 to 700 |"
       },
       {
         "t": "p",
-        "v": "| Weekly Transport Cost | ~AUD 15 | AUD 30–50 | AUD 15–20 |"
+        "v": "| Weekly Transport Cost | ~AUD 15 | AUD 30 to 50 | AUD 15 to 20 |"
       },
       {
         "t": "p",
@@ -1131,12 +1131,12 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "International students budget **AUD 350–700 per week**, or **AUD 2,592– 3,074 per month**."
+        "v": "International students budget **AUD 350 to 700 per week**, or **AUD 2,592- 3,074 per month**."
       },
       {
         "t": "ul",
         "items": [
-          "Rent: AUD 300– 500/week",
+          "Rent: AUD 300- 500/week",
           "Transport: ~AUD  15/week"
         ]
       },
@@ -1151,14 +1151,14 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "Weekly living costs: AUD 600– 1,000+",
-          "Rent: AUD 500– 1,000/week",
+          "Weekly living costs: AUD 600- 1,000+",
+          "Rent: AUD 500- 1,000/week",
           "Transport: ~AUD  50/week"
         ]
       },
       {
         "t": "p",
-        "v": "A 24-week stay in Sydney can cost **AUD 7,000–14,000 more** than Adelaide."
+        "v": "A 24-week stay in Sydney can cost **AUD 7,000 to 14,000 more** than Adelaide."
       },
       {
         "t": "p",
@@ -1167,8 +1167,8 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "Weekly living costs: AUD  500– 900",
-          "Rent: AUD 400– 700/week"
+          "Weekly living costs: AUD  500- 900",
+          "Rent: AUD 400- 700/week"
         ]
       },
       {
@@ -1285,7 +1285,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "**Class sizes**: Sydney & Melbourne: 20–25 students, SACE Adelaide: average 14 students (max 18)"
+        "v": "**Class sizes**: Sydney & Melbourne: 20 to 25 students, SACE Adelaide: average 14 students (max 18)"
       },
       {
         "t": "p",
@@ -1451,7 +1451,7 @@ export const INSIGHTS: InsightPost[] = [
     "faqs": [
       {
         "q": "Is it cheaper to study English in Adelaide?",
-        "a": "Yes. Living costs are AUD 350–700/week vs AUD 600–1,000+ in Sydney."
+        "a": "Yes. Living costs are AUD 350 to 700/week vs AUD 600 to 1,000+ in Sydney."
       },
       {
         "q": "Which Australian city is the safest?",
@@ -1776,9 +1776,9 @@ export const INSIGHTS: InsightPost[] = [
         "t": "ul",
         "items": [
           "Course materials and textbooks",
-          "Enrolment or registration fee (typically AUD 150–300, one-off)",
+          "Enrolment or registration fee (typically AUD 150 to 300, one-off)",
           "OSHC (Overseas Student Health Cover) is required for visa holders",
-          "Accommodation, food, transport, and personal expenses (AUD 350–700 per week in Adelaide)"
+          "Accommodation, food, transport, and personal expenses (AUD 350 to 700 per week in Adelaide)"
         ]
       },
       {
@@ -1799,31 +1799,31 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "**Verify CRICOS registration –** Check the provider’s CRICOS number on the official register. Never enrol with an unregistered provider."
+        "v": "**Verify CRICOS registration -** Check the provider’s CRICOS number on the official register. Never enrol with an unregistered provider."
       },
       {
         "t": "p",
-        "v": "**Check course contact hours –** All ELICOS courses must provide at least 20 face-to-face contact hours per week. Some providers offer more; SACE offers General English at 20, 25 or 16 hours per week, depending on course type."
+        "v": "**Check course contact hours -** All ELICOS courses must provide at least 20 face-to-face contact hours per week. Some providers offer more; SACE offers General English at 20, 25 or 16 hours per week, depending on course type."
       },
       {
         "t": "p",
-        "v": "**Ask about class sizes –** Smaller classes mean more individual attention and more speaking time per student. SACE averages 14 students per class with a maximum of 18."
+        "v": "**Ask about class sizes -** Smaller classes mean more individual attention and more speaking time per student. SACE averages 14 students per class with a maximum of 18."
       },
       {
         "t": "p",
-        "v": "**Confirm placement testing –** Reputable providers check your English level before placing you in a class. You should be at the right level from day one."
+        "v": "**Confirm placement testing -** Reputable providers check your English level before placing you in a class. You should be at the right level from day one."
       },
       {
         "t": "p",
-        "v": "**Check progress monitoring –** Good providers check student progress regularly throughout the course, not only at the end. SACE conducts formal progress tests every four weeks."
+        "v": "**Check progress monitoring -** Good providers check student progress regularly throughout the course, not only at the end. SACE conducts formal progress tests every four weeks."
       },
       {
         "t": "p",
-        "v": "**Look at pathway agreements –** If you plan to enter a university or TAFE after your English course, confirm the provider has direct entry agreements with the institutions you want to attend."
+        "v": "**Look at pathway agreements -** If you plan to enter a university or TAFE after your English course, confirm the provider has direct entry agreements with the institutions you want to attend."
       },
       {
         "t": "p",
-        "v": "**Check accreditations beyond CRICOS –** Additional accreditations, such as English Australia membership or Cambridge authorised examination centre status, indicate that providers meet standards beyond the minimum."
+        "v": "**Check accreditations beyond CRICOS -** Additional accreditations, such as English Australia membership or Cambridge authorised examination centre status, indicate that providers meet standards beyond the minimum."
       },
       {
         "t": "p",
@@ -1966,11 +1966,11 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "| Weekly living cost (student) | AUD $350–$700 | AUD $500–$900 | AUD $600–$1,000+ |"
+        "v": "| Weekly living cost (student) | AUD $350-$700 | AUD $500-$900 | AUD $600-$1,000+ |"
       },
       {
         "t": "p",
-        "v": "| Average weekly rent | AUD $300–$500 | AUD $400–$700 | AUD $500–$1,000 |"
+        "v": "| Average weekly rent | AUD $300-$500 | AUD $400-$700 | AUD $500-$1,000 |"
       },
       {
         "t": "p",
@@ -2011,8 +2011,8 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "AUD $350–$700 per week",
-          "AUD $2,592–$3,074 per month"
+          "AUD $350-$700 per week",
+          "AUD $2,592-$3,074 per month"
         ]
       },
       {
@@ -2022,8 +2022,8 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "Sydney costs 16–47% more",
-          "Melbourne costs 13–20% more"
+          "Sydney costs 16 to 47% more",
+          "Melbourne costs 13 to 20% more"
         ]
       },
       {
@@ -2203,7 +2203,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "q": "What is the cost of living in Adelaide in 2026?",
-        "a": "Students should budget AUD $350–$700 per week, approximately 16 – 47% less than in Sydney."
+        "a": "Students should budget AUD $350-$700 per week, approximately 16, 47% less than in Sydney."
       },
       {
         "q": "Can international students work in Adelaide?",
@@ -2257,9 +2257,9 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "Weekly living costs: **AUD $350–$700**",
-          "Monthly budget: **AUD $2,592–$3,074**",
-          "Savings compared to Sydney: **16–47%**"
+          "Weekly living costs: **AUD $350-$700**",
+          "Monthly budget: **AUD $2,592-$3,074**",
+          "Savings compared to Sydney: **16 to 47%**"
         ]
       },
       {
@@ -2269,8 +2269,8 @@ export const INSIGHTS: InsightPost[] = [
       {
         "t": "ul",
         "items": [
-          "Adelaide: **AUD $300–$500/week**",
-          "Sydney: **AUD $500–$1,000/week**"
+          "Adelaide: **AUD $300-$500/week**",
+          "Sydney: **AUD $500-$1,000/week**"
         ]
       },
       {
@@ -2319,7 +2319,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "It ranked among the safest cities globally in the **Forbes Adviser global safest cities ranking**, and maintains a strong score on the **Numbeo Adelaide safety index 2025–2026**."
+        "v": "It ranked among the safest cities globally in the **Forbes Adviser global safest cities ranking**, and maintains a strong score on the **Numbeo Adelaide safety index 2025 to 2026**."
       },
       {
         "t": "p",
@@ -2563,7 +2563,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "q": "How much does it cost to live in Adelaide?",
-        "a": "Students should budget AUD $350 – $700 per week or AUD $2,592 – $3,074 per month, significantly less than in Sydney."
+        "a": "Students should budget AUD $350, $700 per week or AUD $2,592, $3,074 per month, significantly less than in Sydney."
       },
       {
         "q": "Can I work while studying English in Adelaide?",
@@ -2664,7 +2664,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "| **Scoring System** | Band score 1.0–9.0 | Score 10–90 |"
+        "v": "| **Scoring System** | Band score 1.0 to 9.0 | Score 10 to 90 |"
       },
       {
         "t": "p",
@@ -2725,7 +2725,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "Typically 4–12 weeks, depending on your English level and target score. Classes are small to ensure personalised support."
+        "v": "Typically 4 to 12 weeks, depending on your English level and target score. Classes are small to ensure personalised support."
       },
       {
         "t": "p",
@@ -2791,7 +2791,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "Generally 4–10 weeks full-time, depending on your current proficiency and target PTE score."
+        "v": "Generally 4 to 10 weeks full-time, depending on your current proficiency and target PTE score."
       },
       {
         "t": "p",
@@ -2908,7 +2908,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "AUD $440 – $480 per week"
+        "v": "AUD $440, $480 per week"
       },
       {
         "t": "p",
@@ -2928,7 +2928,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "1. **Select your course** – IELTS or PTE Preparation"
+        "v": "1. **Select your course**, IELTS or PTE Preparation"
       },
       {
         "t": "p",
@@ -2980,11 +2980,11 @@ export const INSIGHTS: InsightPost[] = [
     "faqs": [
       {
         "q": "Q1: Is IELTS easier than PTE? Neither test is “easier”, but some students find IELTS more natural because it involves human interaction, while others prefer PTE’s computer-based objectivity.",
-        "a": "Q2: How long do IELTS and PTE results take? IELTS results are typically available within 5–7 days (for computer-based tests), while PTE results are usually released within 48 hours."
+        "a": "Q2: How long do IELTS and PTE results take? IELTS results are typically available within 5 to 7 days (for computer-based tests), while PTE results are usually released within 48 hours."
       },
       {
         "q": "Q3: Can I switch from IELTS to PTE after enrolling? Yes. At SACE, students can transfer to another preparation programme if they change their study or migration goals.",
-        "a": "Q4: What score do I need for university entry? Most universities in Adelaide require IELTS 6.0–7.0 or PTE 50–65, depending on the programme."
+        "a": "Q4: What score do I need for university entry? Most universities in Adelaide require IELTS 6.0 to 7.0 or PTE 50 to 65, depending on the programme."
       }
     ]
   },
@@ -3262,7 +3262,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "ETS tuition fees generally range from **AUD $440 – $480 per week**, depending on course duration and intensity."
+        "v": "ETS tuition fees generally range from **AUD $440, $480 per week**, depending on course duration and intensity."
       },
       {
         "t": "p",

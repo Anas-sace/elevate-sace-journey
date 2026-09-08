@@ -591,7 +591,7 @@ function ReviewsPanel({
             </label>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="block text-xs font-semibold">
-                Rating (1–5)
+                Rating (1 to 5)
                 <input
                   type="number"
                   min={1}
