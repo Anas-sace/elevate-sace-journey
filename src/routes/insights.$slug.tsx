@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { PageShell } from "@/components/sace/PageShell";
 import { Eyebrow, Reveal } from "@/components/sace/ui";
 import { INSIGHTS, getPost, type Block } from "@/data/insights";
@@ -185,21 +185,27 @@ function InsightPost() {
       <article className="section">
         <div className="shell max-w-3xl">
           <img src={post.image} alt={post.title} className="w-full rounded-4xl object-cover" />
-          {post.blocks.map((b, i) => (
-            <BlockView key={i} b={b} />
-          ))}
+          {toNodes(post.blocks).map((n, i) =>
+            n.kind === "table" ? <TableView key={i} rows={n.rows} /> : <BlockView key={i} b={n.b} />,
+          )}
 
           {post.faqs.length ? (
             <div className="mt-16">
               <h2 className="display-3 text-foreground">Frequently asked questions</h2>
-              <dl className="mt-6 space-y-4">
+              <div className="mt-6 space-y-3">
                 {post.faqs.map((f) => (
-                  <div key={f.q} className="card-premium p-6">
-                    <dt className="font-display text-base font-bold text-foreground">{f.q}</dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</dd>
-                  </div>
+                  <details key={f.q} name="post-faq" className="card-premium group px-6 py-1 open:shadow-lift">
+                    <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-display text-base font-bold text-foreground marker:content-none">
+                      {f.q}
+                      <Plus
+                        aria-hidden
+                        className="size-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-45"
+                      />
+                    </summary>
+                    <p className="pb-5 pr-10 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                  </details>
                 ))}
-              </dl>
+              </div>
             </div>
           ) : null}
 
