@@ -483,7 +483,7 @@ export const INSIGHTS: InsightPost[] = [
         "a": "Speak to our study tour team"
       },
       {
-        "q": "Level 1, 47 Waymouth Street",
+        "q": "Level 1 to 47 Waymouth Street",
         "a": "Adelaide, SA 5000, Australia"
       }
     ]
@@ -654,7 +654,7 @@ export const INSIGHTS: InsightPost[] = [
         "a": "No. Glenelg is reachable by tram in 20 minutes, and most other city beaches are a short bus or bike ride away. A car helps for day trips further out, like Port Noarlunga or the Adelaide Hills, but isn’t essential for everyday student life."
       },
       {
-        "q": "Level 1, 47 Waymouth Street",
+        "q": "Level 1 to 47 Waymouth Street",
         "a": "Adelaide, SA 5000, Australia"
       }
     ]
@@ -709,7 +709,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "At the South Australian College of English (SACE), General English courses run at 16, 20, or 25 hours per week, from two to 48 weeks, with class sizes averaging 14 students."
+        "v": "At the South Australian College of English (SACE), General English courses run at 16 to 20, or 25 hours per week, from two to 48 weeks, with class sizes averaging 14 students."
       },
       {
         "t": "p",
@@ -1020,7 +1020,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "q": "Does SACE offer both General English and IELTS preparation?",
-        "a": "Yes. SACE offers General English at 16, 20, and 25 hours per week from two to 48 weeks, and IELTS Preparation at 20 hours per week for 12 to 24 weeks."
+        "a": "Yes. SACE offers General English at 16 to 20, and 25 hours per week from two to 48 weeks, and IELTS Preparation at 20 hours per week for 12 to 24 weeks."
       },
       {
         "q": "Can I switch from General English to IELTS preparation mid-course?",
@@ -1803,7 +1803,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "t": "p",
-        "v": "**Check course contact hours -** All ELICOS courses must provide at least 20 face-to-face contact hours per week. Some providers offer more; SACE offers General English at 20, 25 or 16 hours per week, depending on course type."
+        "v": "**Check course contact hours -** All ELICOS courses must provide at least 20 face-to-face contact hours per week. Some providers offer more; SACE offers General English at 20 to 25 or 16 hours per week, depending on course type."
       },
       {
         "t": "p",
@@ -2203,7 +2203,7 @@ export const INSIGHTS: InsightPost[] = [
       },
       {
         "q": "What is the cost of living in Adelaide in 2026?",
-        "a": "Students should budget AUD $350-$700 per week, approximately 16, 47% less than in Sydney."
+        "a": "Students should budget AUD $350-$700 per week, approximately 16 to 47% less than in Sydney."
       },
       {
         "q": "Can international students work in Adelaide?",
